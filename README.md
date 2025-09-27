@@ -10,12 +10,12 @@
 
 I'm an AI/ML engineer passionate about building intelligent systems that solve real-world problems. Currently pursuing my M.S. in Applied Machine Learning at the University of Maryland, I specialize in multi-agent systems, LLMs, and deep reinforcement learning.
 
-- 🔭 Currently working on **Multi-Agent Testing Frameworks** and **LLM Factual Consistency**
+- 🔭 Currently working on ** LLM and Reinforcement Learning
 - 🌱 Learning advanced **Reinforcement Learning** and **Graph Neural Networks**
 - 👯 Looking to collaborate on **AI research projects** and **open-source ML tools**
-- 💬 Ask me about **LangChain, Multi-Agent Systems, Deep Learning**
+- 💬 Ask me about **LLM, Multi-Agent Systems, Deep Learning**
 - 📫 Reach me at: **renukareddy.oladri50@gmail.com**
-- ⚡ Fun fact: I've published 4 research papers and achieved 96.6% accuracy in medical image classification!
+- ⚡ Fun fact: [I've published 4 research papers and achieved 96.6% accuracy in medical image classification!]([url](https://orcid.org/0009-0008-2897-2131)) 
 
 ## 🛠️ Tech Arsenal
 
@@ -94,7 +94,7 @@ Ensemble deep learning model with 96.6% accuracy for X-ray classification
 
 <div align="center">
   
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/renuka-oladri)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/renuka-oladri-8002b525b/)
 [![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:renukareddy.oladri50@gmail.com)
 [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/oladri-renuka)
 
