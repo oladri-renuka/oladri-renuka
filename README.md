@@ -67,7 +67,7 @@ Ensemble deep learning model with 96.6% accuracy for X-ray classification
 ## 📊 GitHub Analytics
 
 <div align="center">
-  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=renukaoladri&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true"/>
+  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=oladri-renuka&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true"/>
   <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=renukaoladri&layout=compact&langs_count=8&theme=tokyonight"/>
 </div>
 
