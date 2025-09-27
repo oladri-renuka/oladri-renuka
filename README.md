@@ -47,11 +47,6 @@ I'm an AI/ML engineer passionate about building intelligent systems that solve r
 
 ## 🏆 Featured Projects
 
-### 🤖 Multi-Agent Testing Framework
-Built an automated unit testing system with inter-agent communication for TypeScript/C# test generation
-- **Tech:** Python, LangChain, LangGraph, CrewAI
-- **Achievement:** 92%+ code coverage
-
 ### 🧠 LLM Factual Consistency Evaluation
 3-stage pipeline addressing LLM hallucination using Mistral-7B, T5-Flan, and RoBERTa-MNLI
 - **Results:** 28.7% entailment, 11.2% contradiction rates on ASQA samples
