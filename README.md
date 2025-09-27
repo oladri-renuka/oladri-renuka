@@ -68,7 +68,7 @@ Ensemble deep learning model with 96.6% accuracy for X-ray classification
 
 <div align="center">
   <img height="180em" src="https://github-readme-stats.vercel.app/api?username=oladri-renuka&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true"/>
-  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=renukaoladri&layout=compact&langs_count=8&theme=tokyonight"/>
+  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=oladri-renuka&layout=compact&langs_count=8&theme=tokyonight"/>
 </div>
 
 <div align="center">
@@ -87,7 +87,7 @@ Ensemble deep learning model with 96.6% accuracy for X-ray classification
 ## 📈 Contribution Graph
 
 <div align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=renukaoladri&theme=tokyo-night&bg_color=1a1b27&color=70a5fd&line=70a5fd&point=bf91f3&area=true&hide_border=true" alt="Contribution Graph"/>
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=oladri-renuka&theme=tokyo-night&bg_color=1a1b27&color=70a5fd&line=70a5fd&point=bf91f3&area=true&hide_border=true" alt="Contribution Graph"/>
 </div>
 
 ## 🤝 Let's Connect!
