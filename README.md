@@ -72,7 +72,7 @@ Ensemble deep learning model with 96.6% accuracy for X-ray classification
 </div>
 
 <div align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=renukaoladri&theme=tokyonight" alt="GitHub Streak"/>
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=oladri-renuka&theme=tokyonight" alt="GitHub Streak"/>
 </div>
 
 ## 🏅 Achievements & Recognition
