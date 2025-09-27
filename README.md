@@ -15,7 +15,7 @@ I'm an AI/ML engineer passionate about building intelligent systems that solve r
 - 👯 Looking to collaborate on **AI research projects** and **open-source ML tools**
 - 💬 Ask me about **LLM, Multi-Agent Systems, Deep Learning**
 - 📫 Reach me at: **renukareddy.oladri50@gmail.com**
-- ⚡ Fun fact: [I've published 4 research papers and achieved 96.6% accuracy in medical image classification!]([url](https://orcid.org/0009-0008-2897-2131)) 
+- [I've Published 4 research papers](https://orcid.org/0009-0008-2897-2131)
 
 ## 🛠️ Tech Arsenal
 
