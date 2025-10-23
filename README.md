@@ -10,7 +10,7 @@
 
 I'm an AI/ML engineer passionate about building intelligent systems that solve real-world problems. Currently pursuing my M.S. in Applied Machine Learning at the University of Maryland, I specialize in multi-agent systems, LLMs, and deep reinforcement learning.
 
-- 🔭 Currently working on ** LLM and Reinforcement Learning
+- 🔭 Currently working on **GenAI, Agents,LLM and Reinforcement Learning**
 - 🌱 Learning advanced **Reinforcement Learning** and **Graph Neural Networks**
 - 👯 Looking to collaborate on **AI research projects** and **open-source ML tools**
 - 💬 Ask me about **LLM, Multi-Agent Systems, Deep Learning**
