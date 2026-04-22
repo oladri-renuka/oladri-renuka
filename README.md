@@ -56,7 +56,7 @@ I'm a first-year MS student in Machine Learning at the University of Maryland (A
 ### 🔬 Atomic Factuality Verification — NLI vs. Retrieval+LLM vs. Direct LLM
 > `RoBERTa-MNLI` · `BM25` · `Qwen2.5-3B` · `Gradio` · `HuggingFace Spaces`
 
-Evaluated 3 fact-verification strategies across **14,525 atomic facts from 183 entities**. NLI threshold calibration (0.50→0.10) improved F1 by **+0.076** — a larger gain than switching verifier entirely. Discovered a statistically significant **rarity reversal** (ANOVA F=7.36, p<0.001): frequent entities are harder to verify than rare ones.
+Inspired by FActScore (Min, Krishna, Iyyer et al., EMNLP 2023), this project evaluates 3 fact-verification strategies across **14,525 atomic facts from 183 entities**. NLI threshold calibration (0.50→0.10) improved F1 by **+0.076** — a larger gain than switching verifier entirely. Discovered a statistically significant **rarity reversal** (ANOVA F=7.36, p<0.001): frequent entities are harder to verify than rare ones.
 
 ---
 
