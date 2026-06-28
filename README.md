@@ -40,7 +40,6 @@ The numbers tell the story better than descriptions. Each project links to its r
 ---
 
 ## Skills
-
 | Category | |
 |----------|---|
 | **Languages** | Python, C++, CUDA, TypeScript, SQL |
