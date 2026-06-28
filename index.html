@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Renuka Oladri - ML Engineer &amp; Researcher</title>
+<meta name="description" content="Renuka Oladri - MS Applied Machine Learning, UMD. LLM inference systems, mechanistic interpretability, production ML infrastructure."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+--bg:#0a0a0f;--card:#111827;--border:#1f2937;--green:#00ff88;--purple:#7c3aed;
+--text:#e2e8f0;--muted:#6b7280;--mono:'JetBrains Mono',monospace;--body:'Inter',sans-serif;
+}
+html{scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:var(--green) var(--bg)}
+body{font-family:var(--body);background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.6}
+a{color:var(--green);text-decoration:none;transition:all .3s}
+a:hover{color:#fff}
+::selection{background:var(--green);color:var(--bg)}
+
+/* Cursor glow */
+.cursor-glow{position:fixed;width:600px;height:600px;border-radius:50%;pointer-events:none;z-index:0;
+background:radial-gradient(circle,rgba(0,255,136,.08) 0%,transparent 70%);transform:translate(-50%,-50%);transition:left .3s ease-out,top .3s ease-out}
+
+/* Navbar */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;
+backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);background:rgba(10,10,15,.8);border-bottom:1px solid rgba(31,41,55,.5);transition:all .3s}
+.nav-logo{font-family:var(--mono);font-size:1.4rem;font-weight:700;color:var(--green);letter-spacing:2px}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{color:var(--muted);font-size:.875rem;font-weight:500;transition:color .3s;position:relative}
+.nav-links a:hover,.nav-links a.active{color:var(--green)}
+.nav-links a.active::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:2px;background:var(--green);border-radius:1px}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:1001}
+.hamburger span{width:24px;height:2px;background:var(--text);transition:all .3s}
+.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+
+/* Sections */
+section{position:relative;z-index:1;padding:6rem 2rem}
+.container{max-width:1200px;margin:0 auto}
+.section-title{font-family:var(--mono);font-size:2rem;font-weight:700;margin-bottom:.5rem;color:var(--text)}
+.section-title span{color:var(--green)}
+.section-subtitle{color:var(--muted);font-size:1rem;margin-bottom:3rem}
+
+/* Fade in */
+.fade-in{opacity:0;transform:translateY(30px);transition:opacity .6s ease-out,transform .6s ease-out}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;padding:0 2rem}
+.hero-canvas{position:absolute;top:0;left:0;width:100%;height:100%;z-index:0}
+.hero-content{position:relative;z-index:2;text-align:center;max-width:800px}
+.hero-name{font-family:var(--mono);font-size:clamp(2.5rem,6vw,4.5rem);font-weight:700;color:var(--text);margin-bottom:1.5rem;
+background:linear-gradient(135deg,var(--text) 0%,var(--green) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.typing-wrapper{height:2rem;margin-bottom:1rem;display:flex;align-items:center;justify-content:center}
+.typing-text{font-family:var(--mono);font-size:clamp(1rem,2.5vw,1.25rem);color:var(--green)}
+.typing-cursor{display:inline-block;width:2px;height:1.3em;background:var(--green);margin-left:2px;animation:blink .8s infinite}
+@keyframes blink{0%,50%{opacity:1}51%,100%{opacity:0}}
+.hero-sub{color:var(--muted);font-size:.95rem;margin-bottom:2.5rem;font-family:var(--mono)}
+.hero-buttons{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.75rem 1.5rem;border:1px solid var(--green);
+border-radius:6px;font-family:var(--mono);font-size:.875rem;color:var(--green);background:rgba(0,255,136,.05);
+cursor:pointer;transition:all .3s;text-decoration:none}
+.btn:hover{background:var(--green);color:var(--bg);transform:translateY(-2px);box-shadow:0 4px 20px rgba(0,255,136,.3)}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+.about-text{font-size:1rem;line-height:1.8;color:var(--text)}
+.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.stat-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.5rem;text-align:center;transition:all .3s}
+.stat-card:hover{border-color:var(--green);box-shadow:0 0 20px rgba(0,255,136,.1)}
+.stat-number{font-family:var(--mono);font-size:2.5rem;font-weight:700;color:var(--green);display:block}
+.stat-label{color:var(--muted);font-size:.85rem;margin-top:.25rem}
+
+/* PROJECTS */
+.filter-bar{display:flex;gap:.75rem;margin-bottom:2.5rem;flex-wrap:wrap}
+.filter-btn{padding:.5rem 1rem;border:1px solid var(--border);border-radius:20px;background:transparent;
+color:var(--muted);font-family:var(--mono);font-size:.75rem;cursor:pointer;transition:all .3s}
+.filter-btn:hover,.filter-btn.active{border-color:var(--green);color:var(--green);background:rgba(0,255,136,.08)}
+.projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.project-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.75rem;
+transition:all .4s cubic-bezier(.175,.885,.32,1.275);transform-style:preserve-3d;perspective:1000px;cursor:default}
+.project-card:hover{border-color:var(--green);box-shadow:0 0 30px rgba(0,255,136,.12);transform:translateY(-8px)}
+.project-card.hidden{display:none}
+.card-tag{display:inline-block;font-family:var(--mono);font-size:.65rem;padding:.25rem .6rem;border-radius:10px;
+background:rgba(124,58,237,.15);color:var(--purple);border:1px solid rgba(124,58,237,.3);margin-bottom:1rem;text-transform:uppercase;letter-spacing:1px}
+.card-tag.systems{background:rgba(0,255,136,.08);color:var(--green);border-color:rgba(0,255,136,.2)}
+.card-tag.research{background:rgba(59,130,246,.1);color:#60a5fa;border-color:rgba(59,130,246,.2)}
+.card-tag.agentic{background:rgba(124,58,237,.1);color:#a78bfa;border-color:rgba(124,58,237,.2)}
+.card-tag.interpretability{background:rgba(236,72,153,.1);color:#f472b6;border-color:rgba(236,72,153,.2)}
+.card-tag.training{background:rgba(245,158,11,.1);color:#fbbf24;border-color:rgba(245,158,11,.2)}
+.card-tag.infrastructure{background:rgba(6,182,212,.1);color:#22d3ee;border-color:rgba(6,182,212,.2)}
+.card-tag.quant{background:rgba(16,185,129,.1);color:#34d399;border-color:rgba(16,185,129,.2)}
+.card-title{font-family:var(--mono);font-size:1.1rem;font-weight:600;color:var(--text);margin-bottom:.75rem}
+.card-desc{color:var(--muted);font-size:.85rem;line-height:1.6;margin-bottom:1.25rem;min-height:4rem}
+.card-metric{font-family:var(--mono);font-size:.8rem;color:var(--green);padding:.75rem;background:rgba(0,255,136,.05);
+border-radius:8px;border:1px solid rgba(0,255,136,.1);margin-bottom:1rem;line-height:1.5}
+.card-link{font-family:var(--mono);font-size:.8rem;color:var(--green);display:inline-flex;align-items:center;gap:.4rem;transition:all .3s}
+.card-link:hover{color:#fff;gap:.6rem}
+
+/* RESEARCH */
+.pub-table{width:100%;border-collapse:collapse}
+.pub-table tr{border-bottom:1px solid var(--border);transition:background .3s}
+.pub-table tr:hover{background:rgba(0,255,136,.03)}
+.pub-table td{padding:1.25rem 1rem;vertical-align:middle}
+.pub-table .pub-title{color:var(--text);font-weight:500}
+.pub-table .pub-venue{font-family:var(--mono);font-size:.8rem;color:var(--green)}
+.pub-table .pub-year{font-family:var(--mono);font-size:.85rem;color:var(--muted);text-align:right;white-space:nowrap}
+
+/* EXPERIENCE */
+.timeline{position:relative;padding-left:3rem}
+.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--green),var(--purple))}
+.timeline-item{position:relative;margin-bottom:3rem;padding-bottom:1rem}
+.timeline-item::before{content:'';position:absolute;left:-3rem;top:.5rem;width:12px;height:12px;border-radius:50%;
+background:var(--green);border:3px solid var(--bg);box-shadow:0 0 10px rgba(0,255,136,.4);transform:translateX(-5px)}
+.timeline-role{font-family:var(--mono);font-size:1.15rem;font-weight:600;color:var(--text)}
+.timeline-company{color:var(--green);font-size:1rem;font-weight:500;margin:.25rem 0}
+.timeline-period{font-family:var(--mono);font-size:.8rem;color:var(--muted);margin-bottom:1rem}
+.timeline-bullets{list-style:none}
+.timeline-bullets li{color:var(--muted);font-size:.9rem;padding:.4rem 0;padding-left:1.25rem;position:relative;line-height:1.6}
+.timeline-bullets li::before{content:'>';font-family:var(--mono);color:var(--green);position:absolute;left:0;font-size:.8rem}
+
+/* SKILLS */
+.skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.skill-category{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.75rem;transition:all .3s}
+.skill-category:hover{border-color:var(--green);box-shadow:0 0 20px rgba(0,255,136,.08)}
+.skill-category h3{font-family:var(--mono);font-size:.9rem;color:var(--green);margin-bottom:1rem;text-transform:uppercase;letter-spacing:1px}
+.skill-pills{display:flex;flex-wrap:wrap;gap:.5rem}
+.pill{padding:.4rem .8rem;border:1px solid var(--border);border-radius:20px;font-family:var(--mono);font-size:.75rem;
+color:var(--text);background:rgba(255,255,255,.03);transition:all .3s}
+.pill:hover{border-color:var(--green);color:var(--green);box-shadow:0 0 10px rgba(0,255,136,.15)}
+
+/* CONTACT */
+.contact{text-align:center;padding:6rem 2rem 4rem}
+.contact h2{font-family:var(--mono);font-size:2rem;margin-bottom:.75rem}
+.contact h2 span{color:var(--green)}
+.contact p{color:var(--muted);margin-bottom:2.5rem;font-size:1rem}
+.contact-buttons{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+
+/* Footer */
+footer{text-align:center;padding:2rem;border-top:1px solid var(--border);color:var(--muted);font-size:.8rem;font-family:var(--mono)}
+
+/* Mobile nav overlay */
+.mobile-nav{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(10,10,15,.97);z-index:999;display:none;
+flex-direction:column;align-items:center;justify-content:center;gap:2rem}
+.mobile-nav.open{display:flex}
+.mobile-nav a{font-family:var(--mono);font-size:1.25rem;color:var(--text)}
+.mobile-nav a:hover{color:var(--green)}
+
+/* Responsive */
+@media(max-width:1024px){
+.projects-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:768px){
+.nav-links{display:none}
+.hamburger{display:flex}
+.about-grid{grid-template-columns:1fr}
+.projects-grid{grid-template-columns:1fr}
+.skills-grid{grid-template-columns:1fr}
+section{padding:4rem 1.5rem}
+.hero-name{font-size:2.2rem}
+.timeline{padding-left:2rem}
+.timeline-item::before{left:-2rem}
+.filter-bar{justify-content:center}
+.pub-table td{padding:.75rem .5rem;font-size:.85rem}
+}
+@media(max-width:480px){
+.hero-buttons{flex-direction:column;align-items:center}
+.stats-grid{grid-template-columns:1fr}
+.contact-buttons{flex-direction:column;align-items:center}
+}
+</style>
+</head>
+<body>
+
+<!-- Cursor glow -->
+<div class="cursor-glow" id="cursorGlow"></div>
+
+<!-- Navbar -->
+<nav class="nav" id="navbar">
+<a href="#hero" class="nav-logo">RO</a>
+<ul class="nav-links" id="navLinks">
+<li><a href="#about">About</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#research">Research</a></li>
+<li><a href="#experience">Experience</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+<div class="hamburger" id="hamburger" onclick="toggleMobile()">
+<span></span><span></span><span></span>
+</div>
+</nav>
+
+<!-- Mobile nav -->
+<div class="mobile-nav" id="mobileNav">
+<a href="#about" onclick="closeMobile()">About</a>
+<a href="#projects" onclick="closeMobile()">Projects</a>
+<a href="#research" onclick="closeMobile()">Research</a>
+<a href="#experience" onclick="closeMobile()">Experience</a>
+<a href="#skills" onclick="closeMobile()">Skills</a>
+<a href="#contact" onclick="closeMobile()">Contact</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+<canvas class="hero-canvas" id="heroCanvas"></canvas>
+<div class="hero-content">
+<h1 class="hero-name">Renuka Oladri</h1>
+<div class="typing-wrapper">
+<span class="typing-text" id="typingText"></span><span class="typing-cursor"></span>
+</div>
+<p class="hero-sub">MS Applied Machine Learning · University of Maryland · May 2027</p>
+<div class="hero-buttons">
+<a href="https://github.com/oladri-renuka" target="_blank" rel="noopener noreferrer" class="btn">&#8594; GitHub</a>
+<a href="https://linkedin.com/in/renuka-oladri" target="_blank" rel="noopener noreferrer" class="btn">&#8594; LinkedIn</a>
+<a href="mailto:renukaoladriw@gmail.com" class="btn">&#8594; Email</a>
+</div>
+</div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+<div class="container fade-in">
+<h2 class="section-title">About <span>Me</span></h2>
+<div class="section-subtitle"></div>
+<div class="about-grid">
+<div class="about-text">
+Building at the intersection of LLM systems and mechanistic interpretability. Previously AI Data &amp; Analytics Intern at HARMAN International (Samsung) where a multi-agent TypeScript testing system hit 93% code coverage vs GitHub Copilot's 70-80% and caught 5 Redis reliability gaps before production. Research Assistant at Woxsen University leading a 4-person team on battery management ML. 5 peer-reviewed publications across Springer Nature, Wiley-Scrivener, and IGI Global.
+</div>
+<div class="stats-grid">
+<div class="stat-card"><span class="stat-number" data-target="12" data-suffix="+">0</span><span class="stat-label">Projects shipped</span></div>
+<div class="stat-card"><span class="stat-number" data-target="5" data-suffix="">0</span><span class="stat-label">Peer-reviewed publications</span></div>
+<div class="stat-card"><span class="stat-number" data-target="93" data-suffix="%">0</span><span class="stat-label">Code coverage at HARMAN vs Copilot's 70-80%</span></div>
+<div class="stat-card"><span class="stat-number" data-target="2" data-suffix="+">0</span><span class="stat-label">Years research experience</span></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+<div class="container fade-in">
+<h2 class="section-title">Selected <span>Work</span></h2>
+<p class="section-subtitle">Every number here came from a real experiment.</p>
+
+<div class="filter-bar">
+<button class="filter-btn active" data-filter="all">All</button>
+<button class="filter-btn" data-filter="systems">Systems</button>
+<button class="filter-btn" data-filter="research">Research</button>
+<button class="filter-btn" data-filter="agentic">Agentic AI</button>
+<button class="filter-btn" data-filter="interpretability">Interpretability</button>
+<button class="filter-btn" data-filter="training">Training</button>
+<button class="filter-btn" data-filter="infrastructure">Infrastructure</button>
+<button class="filter-btn" data-filter="quant">Quant Finance</button>
+</div>
+
+<div class="projects-grid" id="projectsGrid">
+
+<div class="project-card" data-category="systems">
+<span class="card-tag systems">Systems</span>
+<h3 class="card-title">LLM Inference Server</h3>
+<p class="card-desc">Continuous batching + paged KV-cache from scratch in PyTorch without vLLM. Proved static batching underperforms naive serial under mixed-length traffic: 94% of batches pay full long-tail cost when 30% of requests are long.</p>
+<div class="card-metric">2.91 req/s · 0 failures · SSE streaming</div>
+<a href="https://github.com/oladri-renuka/inference-server" target="_blank" rel="noopener noreferrer" class="card-link">View Repo &#8594;</a>
+</div>
+
+<div class="project-card" data-category="infrastructure">
+<span class="card-tag infrastructure">Infrastructure</span>
+<h3 class="card-title">Real-Time Feature Store</h3>
+<p class="card-desc">Kafka ingestion with 15% reordering, 5% duplicates, 10% late arrivals. Three-way consistency proof (online vs offline vs ground truth) catches shared bugs that two-way comparison misses entirely.</p>
+<div class="card-metric">0 mismatches / 800 checks · p95 4.8ms · 9,300 req/s</div>
+<a href="https://github.com/oladri-renuka/feature-store" target="_blank" rel="noopener noreferrer" class="card-link">View Repo &#8594;</a>
+</div>
+
+<div class="project-card" data-category="agentic">
+<span class="card-tag agentic">Agentic AI</span>
+<h3 class="card-title">Adaptive Multi-Model Agent</h3>
+<p class="card-desc">LangGraph 6-node state graph routes requests to cheap or expensive models based on LLM-classified complexity. Input guard catches injection. Output guard catches hallucination before returning.</p>
+<div class="card-metric">98% routing accuracy · 28.2% cost reduction</div>
+<a href="https://github.com/oladri-renuka/adaptive_agent" target="_blank" rel="noopener noreferrer" class="card-link">View Repo &#8594;</a>
+</div>
+
+<div class="project-card" data-category="systems">
+<span class="card-tag systems">Systems</span>
+<h3 class="card-title">SASRec Recommendation API</h3>
+<p class="card-desc">Sequential recommendation on MovieLens-1M deployed on AWS EC2. Full-ranking eval reveals sampled evaluation inflates Hit@10 from 6.23% to 70.68%.</p>
+<div class="card-metric">HR@10 78.49% · 8,366 req/s · live on AWS</div>
+<a href="https://github.com/oladri-renuka/recsys" target="_blank" rel="noopener noreferrer" class="card-link">View Repo &#8594;</a>
+</div>
+
+<div class="project-card" data-category="interpretability">
+<span class="card-tag interpretability">Interpretability</span>
+<h3 class="card-title">Early Detection of Reasoning Failures</h3>
+<p class="card-desc">Linear probe on DeepSeek-R1 hidden states at 150 tokens predicts generation failure before any behavioral signal appears. At 100 tokens behavioral features are actively anti-informative.</p>
+<div class="card-metric">AUC 0.612 vs 0.445 baseline (p=0.001)</div>
+<a href="https://github.com/oladri-renuka/early_detection" target="_blank" rel="noopener noreferrer" class="card-link">View Repo &#8594;</a>
+</div>
+
+<div class="project-card" data-category="research">
+<span class="card-tag research">Research</span>
+<h3 class="card-title">VLM Hallucination Across Domains</h3>
+<p class="card-desc">LLaVA vs InternVL2 across 4 image domains. Domain shift changes which capabilities break, not just overall accuracy. LLaVA says yes 88% of the time on adversarial probes.</p>
+<div class="card-metric">945 probes · chi-square p&lt;0.0001 · 71pp OCR gap</div>
+<a href="https://github.com/oladri-renuka/vlm-hallucination" target="_blank" rel="noopener noreferrer" class="card-link">View Repo &#8594;</a>
+</div>
+
+<div class="project-card" data-category="training">
+<span class="card-tag training">Training</span>
+<h3 class="card-title">LLM Post-Training Pipeline</h3>
+<p class="card-desc">Complete SFT, reward model, DPO on LLaMA-3.2-1B. Diagnosed TRL bug causing negative KL divergence across 8 failed PPO runs by tracing merged LoRA and KV-cache format incompatibility.</p>
+<div class="card-metric">+9pp factual accuracy (p=0.030) · 76.09% reward model val acc</div>
+<a href="https://github.com/oladri-renuka/llm-post-training-pipeline" target="_blank" rel="noopener noreferrer" class="card-link">View Repo &#8594;</a>
+</div>
+
+<div class="project-card" data-category="agentic">
+<span class="card-tag agentic">Agentic AI</span>
+<h3 class="card-title">Personal Knowledge Agent</h3>
+<p class="card-desc">Belief graph from documents with cross-entity contradiction detection. MCP server with 5 tools so Claude Desktop can query the graph directly. 2 embedding API calls per document regardless of size.</p>
+<div class="card-metric">906 entities · 32 conflicts · 0 false positives</div>
+<a href="https://github.com/oladri-renuka/knowledge-agent" target="_blank" rel="noopener noreferrer" class="card-link">View Repo &#8594;</a>
+</div>
+
+<div class="project-card" data-category="systems">
+<span class="card-tag systems">Systems</span>
+<h3 class="card-title">CUDA Attention Kernel</h3>
+<p class="card-desc">Naive and tiled attention on A100. Diagnosed why tiling underperforms theory: 40MB L2 cache absorbs repeated global loads at seq_len=256. Benefit only emerges above seq_len=2048.</p>
+<div class="card-metric">515 GFLOPS/s · ~145x over CPU</div>
+<a href="https://github.com/oladri-renuka/cuda-attention-kernel" target="_blank" rel="noopener noreferrer" class="card-link">View Repo &#8594;</a>
+</div>
+
+<div class="project-card" data-category="agentic">
+<span class="card-tag agentic">Agentic AI</span>
+<h3 class="card-title">Code Memory Agent</h3>
+<p class="card-desc">SQLite-backed codebase memory with SHA-256 staleness checking. Queries memory before reading files. Logs every naming and architectural decision so later steps stay consistent.</p>
+<div class="card-metric">42.9% file read reduction · 19 decision-reuse events</div>
+<a href="https://github.com/oladri-renuka/code-memory-agent" target="_blank" rel="noopener noreferrer" class="card-link">View Repo &#8594;</a>
+</div>
+
+<div class="project-card" data-category="quant">
+<span class="card-tag quant">Quant Finance</span>
+<h3 class="card-title">Sparse Factor Modeling</h3>
+<p class="card-desc">9 LASSO solvers from scratch on 25 US equity portfolios with walk-forward backtesting and no look-ahead bias. Novel finding: FISTA degrades at high sparsity (0.95x baseline at alpha=0.05).</p>
+<div class="card-metric">Sharpe 5.061 · KKT ranking rho=0.906</div>
+<a href="https://github.com/oladri-renuka/sparse-factor-modeling" target="_blank" rel="noopener noreferrer" class="card-link">View Repo &#8594;</a>
+</div>
+
+<div class="project-card" data-category="research">
+<span class="card-tag research">Research</span>
+<h3 class="card-title">Web Agent Benchmark</h3>
+<p class="card-desc">Hierarchical planning vs flat ReAct across 30 tasks on two models. Null result: no significant difference after fixing 14 real bugs. Reported honestly with the bug-fix process as the actual contribution.</p>
+<div class="card-metric">17/30 vs 18/30 · p=0.79 · null result</div>
+<a href="https://github.com/oladri-renuka/web-agent" target="_blank" rel="noopener noreferrer" class="card-link">View Repo &#8594;</a>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- RESEARCH -->
+<section id="research">
+<div class="container fade-in">
+<h2 class="section-title"><span>Research</span></h2>
+<p class="section-subtitle">Publications</p>
+<table class="pub-table">
+<tr>
+<td><span class="pub-title">Stem Cell Reviews and Reports</span><br/><span class="pub-venue">Springer Nature</span></td>
+<td class="pub-year">2025</td>
+</tr>
+<tr>
+<td><span class="pub-title">Digital Forensics and Cybersecurity: Emerging Threats</span><br/><span class="pub-venue">Wiley-Scrivener</span></td>
+<td class="pub-year">2024</td>
+</tr>
+<tr>
+<td><span class="pub-title">Economic Perspectives</span><br/><span class="pub-venue">IGI Global</span></td>
+<td class="pub-year">2024</td>
+</tr>
+<tr>
+<td><span class="pub-title">YOLOv8 Multi-class Traffic Sign Detection</span> <span style="color:var(--muted);font-size:.85rem">(80.64% accuracy)</span><br/><span class="pub-venue">IJSRA</span></td>
+<td class="pub-year">2024</td>
+</tr>
+<tr>
+<td><span class="pub-title">BERT for Twitter Sentiment Analysis</span> <span style="color:var(--muted);font-size:.85rem">(F1 0.88)</span><br/><span class="pub-venue">J. Trends in CS &amp; Smart Technology</span></td>
+<td class="pub-year">2024</td>
+</tr>
+</table>
+</div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+<div class="container fade-in">
+<h2 class="section-title"><span>Experience</span></h2>
+<div class="section-subtitle"></div>
+<div class="timeline">
+
+<div class="timeline-item">
+<div class="timeline-role">AI Data &amp; Analytics Intern</div>
+<div class="timeline-company">HARMAN International (Samsung)</div>
+<div class="timeline-period">Dec 2024 &ndash; Jun 2025</div>
+<ul class="timeline-bullets">
+<li>Engineered multi-agent TypeScript testing system: 93% code coverage vs GitHub Copilot's 70-80%, evaluated across 10+ unit test dimensions</li>
+<li>Identified 5 critical Redis reliability gaps before production deployment</li>
+<li>Stress-tested state persistence layer under concurrent multi-turn agent interactions</li>
+</ul>
+</div>
+
+<div class="timeline-item">
+<div class="timeline-role">Research Assistant</div>
+<div class="timeline-company">Woxsen University</div>
+<div class="timeline-period">Aug 2022 &ndash; Dec 2024</div>
+<ul class="timeline-bullets">
+<li>Led 4-person team on Battery Management System ML: Random Forest at 90-95% charging current accuracy</li>
+<li>Designed data collection and preprocessing pipelines with ethical compliance documentation</li>
+<li>Co-authored 5 peer-reviewed publications</li>
+</ul>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+<div class="container fade-in">
+<h2 class="section-title"><span>Skills</span></h2>
+<div class="section-subtitle"></div>
+<div class="skills-grid">
+<div class="skill-category">
+<h3>Languages</h3>
+<div class="skill-pills">
+<span class="pill">Python</span><span class="pill">C++</span><span class="pill">CUDA</span><span class="pill">TypeScript</span><span class="pill">SQL</span>
+</div>
+</div>
+<div class="skill-category">
+<h3>ML / DL</h3>
+<div class="skill-pills">
+<span class="pill">PyTorch</span><span class="pill">JAX</span><span class="pill">HuggingFace</span><span class="pill">LangGraph</span><span class="pill">scikit-learn</span><span class="pill">LoRA</span><span class="pill">DPO</span><span class="pill">RLHF</span>
+</div>
+</div>
+<div class="skill-category">
+<h3>Systems</h3>
+<div class="skill-pills">
+<span class="pill">AWS (EC2, S3)</span><span class="pill">Kafka</span><span class="pill">Redis</span><span class="pill">Docker</span><span class="pill">FastAPI</span><span class="pill">RunPod</span>
+</div>
+</div>
+<div class="skill-category">
+<h3>Research</h3>
+<div class="skill-pills">
+<span class="pill">Mechanistic Interpretability</span><span class="pill">Activation Probing</span><span class="pill">Benchmark Evaluation</span><span class="pill">Causal Inference</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+<div class="container fade-in">
+<h2>Get in <span>touch</span></h2>
+<p>Open to ML engineering and research roles starting Spring 2027.</p>
+<div class="contact-buttons">
+<a href="https://github.com/oladri-renuka" target="_blank" rel="noopener noreferrer" class="btn">&#8594; GitHub</a>
+<a href="https://linkedin.com/in/renuka-oladri" target="_blank" rel="noopener noreferrer" class="btn">&#8594; LinkedIn</a>
+<a href="mailto:renukaoladriw@gmail.com" class="btn">&#8594; Email</a>
+</div>
+</div>
+</section>
+
+<footer>&copy; 2025 Renuka Oladri</footer>
+
+<!-- Three.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+// Cursor glow
+const glow=document.getElementById('cursorGlow');
+document.addEventListener('mousemove',e=>{glow.style.left=e.clientX+'px';glow.style.top=e.clientY+'px'});
+
+// Mobile nav
+function toggleMobile(){
+document.getElementById('mobileNav').classList.toggle('open');
+document.getElementById('hamburger').classList.toggle('open');
+}
+function closeMobile(){
+document.getElementById('mobileNav').classList.remove('open');
+document.getElementById('hamburger').classList.remove('open');
+}
+
+// Typing animation
+const phrases=["Building LLM inference systems.","Mechanistic interpretability research.","Production ML infrastructure."];
+const typingEl=document.getElementById('typingText');
+let phraseIdx=0,charIdx=0,isDeleting=false,typeSpeed=60;
+function typeLoop(){
+const current=phrases[phraseIdx];
+if(!isDeleting){
+typingEl.textContent=current.substring(0,charIdx+1);
+charIdx++;
+if(charIdx===current.length){
+setTimeout(()=>{isDeleting=true;typeLoop()},2000);
+return;
+}
+}else{
+typingEl.textContent=current.substring(0,charIdx-1);
+charIdx--;
+if(charIdx===0){
+isDeleting=false;
+phraseIdx=(phraseIdx+1)%phrases.length;
+}
+}
+setTimeout(typeLoop,isDeleting?30:typeSpeed);
+}
+typeLoop();
+
+// Intersection Observer for fade-in and stat counting
+const observer=new IntersectionObserver((entries)=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add('visible');
+// Count up stats
+entry.target.querySelectorAll('.stat-number').forEach(el=>{
+const target=parseInt(el.dataset.target);
+const suffix=el.dataset.suffix||'';
+let current=0;
+const step=Math.max(1,Math.floor(target/40));
+const timer=setInterval(()=>{
+current+=step;
+if(current>=target){current=target;clearInterval(timer)}
+el.textContent=current+suffix;
+},30);
+});
+observer.unobserve(entry.target);
+}
+});
+},{threshold:0.1});
+document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
+
+// Active nav link
+const sections=document.querySelectorAll('section[id]');
+const navLinks=document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll',()=>{
+let current='';
+sections.forEach(s=>{
+if(window.scrollY>=s.offsetTop-200)current=s.getAttribute('id');
+});
+navLinks.forEach(a=>{
+a.classList.remove('active');
+if(a.getAttribute('href')==='#'+current)a.classList.add('active');
+});
+});
+
+// Filter
+document.querySelectorAll('.filter-btn').forEach(btn=>{
+btn.addEventListener('click',()=>{
+document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+btn.classList.add('active');
+const filter=btn.dataset.filter;
+document.querySelectorAll('.project-card').forEach(card=>{
+if(filter==='all'||card.dataset.category===filter){
+card.classList.remove('hidden');card.style.display='';
+}else{
+card.classList.add('hidden');card.style.display='none';
+}
+});
+});
+});
+
+// 3D Card tilt
+document.querySelectorAll('.project-card').forEach(card=>{
+card.addEventListener('mousemove',e=>{
+const rect=card.getBoundingClientRect();
+const x=(e.clientX-rect.left)/rect.width-.5;
+const y=(e.clientY-rect.top)/rect.height-.5;
+card.style.transform=`translateY(-8px) rotateY(${x*12}deg) rotateX(${-y*12}deg)`;
+});
+card.addEventListener('mouseleave',()=>{
+card.style.transform='translateY(0) rotateY(0) rotateX(0)';
+});
+});
+
+// Three.js particle field (desktop only)
+if(window.innerWidth>=768){
+const canvas=document.getElementById('heroCanvas');
+const scene=new THREE.Scene();
+const camera=new THREE.PerspectiveCamera(75,canvas.clientWidth/canvas.clientHeight,0.1,1000);
+const renderer=new THREE.WebGLRenderer({canvas,alpha:true,antialias:true});
+renderer.setSize(canvas.clientWidth,canvas.clientHeight);
+renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
+camera.position.z=5;
+
+const particleCount=150;
+const positions=new Float32Array(particleCount*3);
+const velocities=[];
+for(let i=0;i<particleCount;i++){
+positions[i*3]=(Math.random()-.5)*10;
+positions[i*3+1]=(Math.random()-.5)*8;
+positions[i*3+2]=(Math.random()-.5)*6;
+velocities.push({x:(Math.random()-.5)*.005,y:(Math.random()-.5)*.005,z:(Math.random()-.5)*.003});
+}
+const geo=new THREE.BufferGeometry();
+geo.setAttribute('position',new THREE.BufferAttribute(positions,3));
+const mat=new THREE.PointsMaterial({color:0x00ff88,size:0.04,transparent:true,opacity:0.7});
+const points=new THREE.Points(geo,mat);
+scene.add(points);
+
+// Lines between nearby particles
+const lineGeo=new THREE.BufferGeometry();
+const lineMat=new THREE.LineBasicMaterial({color:0x00ff88,transparent:true,opacity:0.08});
+const lines=new THREE.LineSegments(lineGeo,lineMat);
+scene.add(lines);
+
+let mouseX=0,mouseY=0;
+document.addEventListener('mousemove',e=>{
+mouseX=(e.clientX/window.innerWidth-.5)*2;
+mouseY=(e.clientY/window.innerHeight-.5)*2;
+});
+
+function animate(){
+requestAnimationFrame(animate);
+const pos=geo.attributes.position.array;
+for(let i=0;i<particleCount;i++){
+pos[i*3]+=velocities[i].x;
+pos[i*3+1]+=velocities[i].y;
+pos[i*3+2]+=velocities[i].z;
+if(Math.abs(pos[i*3])>5)velocities[i].x*=-1;
+if(Math.abs(pos[i*3+1])>4)velocities[i].y*=-1;
+if(Math.abs(pos[i*3+2])>3)velocities[i].z*=-1;
+// Mouse attraction
+pos[i*3]+=(mouseX*.3-pos[i*3])*.001;
+pos[i*3+1]+=(-mouseY*.3-pos[i*3+1])*.001;
+}
+geo.attributes.position.needsUpdate=true;
+
+// Update lines
+const linePositions=[];
+for(let i=0;i<particleCount;i++){
+for(let j=i+1;j<particleCount;j++){
+const dx=pos[i*3]-pos[j*3],dy=pos[i*3+1]-pos[j*3+1],dz=pos[i*3+2]-pos[j*3+2];
+const dist=Math.sqrt(dx*dx+dy*dy+dz*dz);
+if(dist<1.5){
+linePositions.push(pos[i*3],pos[i*3+1],pos[i*3+2]);
+linePositions.push(pos[j*3],pos[j*3+1],pos[j*3+2]);
+}
+}
+}
+lineGeo.setAttribute('position',new THREE.Float32BufferAttribute(linePositions,3));
+
+renderer.render(scene,camera);
+}
+animate();
+
+window.addEventListener('resize',()=>{
+camera.aspect=canvas.clientWidth/canvas.clientHeight;
+camera.updateProjectionMatrix();
+renderer.setSize(canvas.clientWidth,canvas.clientHeight);
+});
+}
+</script>
+</body>
+</html>
