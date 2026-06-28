@@ -75,37 +75,3 @@ These are the findings, not just the project names.
 [YOLOv8 Multi-class Traffic Sign Detection](https://www.researchgate.net/publication/379484233_A_YOLOv8-based_Approach_for_Multi-class_Traffic_Sign_Detection) -- IJSRA, 2024 (80.64% accuracy)
 
 [BERT for Twitter Sentiment Analysis](https://www.researchgate.net/publication/379158895_BERT_for_Twitter_Sentiment_Analysis_Achieving_High_Accuracy_and_Balanced_Performance) -- J. Trends in CS & Smart Technology, 2024 (F1 0.88)
-| [sparse-factor-modeling](https://github.com/oladri-renuka/sparse-factor-modeling) | 9 LASSO solvers from scratch with walk-forward backtesting. Novel finding: FISTA degrades at high sparsity. | Sharpe 5.061, KKT ranking rho=0.906 |
-
----
-
-## Skills
-| Category | |
-|----------|---|
-| **Languages** | Python, C++, CUDA, TypeScript, SQL |
-| **ML/DL** | PyTorch, JAX, HuggingFace Transformers, LangGraph, scikit-learn, LoRA, DPO, RLHF |
-| **Systems** | AWS (EC2, S3), Kafka, Redis, Docker, FastAPI, RunPod |
-| **Research** | Mechanistic interpretability, activation probing, benchmark evaluation, causal inference |
-
----
-
-## Publications
-
-| Venue | Year |
-|-------|------|
-| Stem Cell Reviews and Reports, **Springer Nature** | 2025 |
-| Digital Forensics and Cybersecurity: Emerging Threats, **Wiley-Scrivener** | 2024 |
-| **IGI Global** | 2024 |
-| IJSRA (YOLOv8 traffic sign detection, 80.64% accuracy) | 2024 |
-| J. Trends in CS & Smart Technology (BERT sentiment, F1 0.88) | 2024 |
-
----
-
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=oladri-renuka&show_icons=true&theme=github_dark&hide_border=true&count_private=true&hide_title=true" height="165" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=oladri-renuka&layout=compact&theme=github_dark&hide_border=true&langs_count=8" height="165" />
-</p>
-
-<p align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=oladri-renuka&theme=github-dark-blue&hide_border=true" height="165" />
-</p>
