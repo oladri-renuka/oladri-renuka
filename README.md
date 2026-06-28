@@ -17,10 +17,16 @@
 ### Experience
 
 **AI Data & Analytics Intern, HARMAN International (Samsung)** · Dec 2024 - Jun 2025
-Multi-agent TypeScript testing system: 93% code coverage vs GitHub Copilot's 70-80%. Found 5 Redis reliability gaps before production.
+Multi-agent TypeScript testing system: 93% code coverage vs GitHub Copilot's 70-80%. Found 5 Redis reliability gaps before production. Designed 10+ unit test cases validating memory, tool-use, and prompt components.
 
 **Research Assistant, Woxsen University** · Aug 2022 - Dec 2024
-Battery management system ML pipeline. 90-95% accuracy. Led 4-person research team.
+Led 4-person team on Battery Management System ML (Random Forest, 90-95% accuracy). Co-authored 5 peer-reviewed publications. Translated ML outputs into technical documentation for non-specialist faculty.
+
+**Junior Data Analyst Intern, SeriGreen Technologies** · Feb 2024 - Jul 2024
+Transformed Karnataka cocoon market datasets (10K-100K records) using SQL and Python. Built the SeriGreen Farm Management Web Application (MERN stack). Findings presented directly to founders.
+
+**Research Intern, AppsTek Corp** · Feb 2023 - Jul 2023
+Built multimodal sentiment classification combining video frames, audio, and transcripts via deep learning. 90%+ accuracy across 3 labels. Demoed to AI team.
 
 ---
 
@@ -114,6 +120,17 @@ Battery management system ML pipeline. 90-95% accuracy. Led 4-person research te
 | [Economic Perspectives](https://www.igi-global.com/chapter/economic-perspectives/338698) | **IGI Global** | 2024 |
 | [YOLOv8 Traffic Sign Detection](https://www.researchgate.net/publication/379484233_A_YOLOv8-based_Approach_for_Multi-class_Traffic_Sign_Detection) (80.64% acc) | IJSRA | 2024 |
 | [BERT Sentiment Analysis](https://www.researchgate.net/publication/379158895_BERT_for_Twitter_Sentiment_Analysis_Achieving_High_Accuracy_and_Balanced_Performance) (F1 0.88) | J. Trends in CS | 2024 |
+
+---
+
+### Certifications & Awards
+
+| | |
+|---|---|
+| **Udacity Agentic AI Nanodegree** | Jan 2026 |
+| **Oracle OCI 2025 Certified AI Foundations Associate** | Dec 2025 |
+| **National Hackathon Best Demonstration Award** | Oriental Institute of Science & Technology, Bhopal 2023 (Team Leader) |
+| **Dean's List + Best Student for Research Inclination** | Woxsen University |
 
 ---
 
