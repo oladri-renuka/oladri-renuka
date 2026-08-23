@@ -1,7 +1,13 @@
 # Renuka Oladri
 
-**AI/ML Engineer & Researcher**  
+**AI/ML Engineer & Researcher**
+
 Building LLM inference systems and agentic architectures that reason reliably at scale.
+
+[![Portfolio](https://img.shields.io/badge/Portfolio-oladri--renuka.github.io-0284c7?style=flat-square)](https://oladri-renuka.github.io/oladri-renuka/)
+[![arXiv](https://img.shields.io/badge/arXiv-2607.09999-b31b1b?style=flat-square)](https://arxiv.org/abs/2607.09999)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Renuka%20Oladri-0a66c2?style=flat-square&logo=linkedin)](https://www.linkedin.com/in/renuka-oladri-8002b525b/)
+[![Email](https://img.shields.io/badge/Email-renukaoladriw%40gmail.com-d14836?style=flat-square&logo=gmail)](mailto:renukaoladriw@gmail.com)
 
 ---
 
@@ -18,80 +24,139 @@ I care deeply about reproducibility and rigorous evaluation. I'd rather scope a 
 ## Featured Research
 
 ### Silent Failures in Quantized LLM Reasoning
+
 A taxonomy-based analysis of failure modes when quantizing reasoning models to low precision. Reveals the "Hollow Convergence" phenomenon where models output correct answers while internal reasoning completely breaks.
 
-**Status:** Submitted to IEEE ICTAI 2026  
+**Status:** ![IEEE ICTAI 2026](https://img.shields.io/badge/IEEE%20ICTAI%202026-Submitted-orange?style=flat-square)  
 **Key Finding:** 94% generation collapse under default FP8 quantization  
-**Link:** [arXiv:2607.09999](https://arxiv.org/abs/2607.09999)
+**arXiv:** [![arXiv:2607.09999](https://img.shields.io/badge/arXiv-2607.09999-b31b1b?style=flat-square)](https://arxiv.org/abs/2607.09999)
 
 ### Token Budget Saturation & Mechanistic Early-Detection of Reasoning Non-Convergence
+
 Using activation probes on intermediate layers to predict whether chain-of-thought reasoning will converge, enabling efficient early-exit strategies in inference.
 
-**Status:** Accepted at COLM 2026 Workshop  
+**Status:** ![COLM 2026 Workshop](https://img.shields.io/badge/COLM%202026-Accepted-brightgreen?style=flat-square)  
 **Key Finding:** AUC 0.612 on convergence prediction vs 0.445 baseline  
-**Link:** [arXiv:2607.21433](https://arxiv.org/abs/2607.21433)
+**arXiv:** [![arXiv:2607.21433](https://img.shields.io/badge/arXiv-2607.21433-b31b1b?style=flat-square)](https://arxiv.org/abs/2607.21433)
 
 ---
 
 ## Featured Projects
 
 ### vLLM KV-Cache Quantization Reasoning Evaluation
+
 Investigated whether vLLM's KV-cache quantization modes cause silent reasoning failures. Found that calibrated FP8 causes near-total generation collapse (94% failure) while int8_per_token_head closely tracks unquantized baseline accuracy. Findings referenced in vLLM's issue tracker.
 
-**Metrics:** 94% failure rate, FP8 root cause identified  
-**Technologies:** vLLM, PyTorch, Quantization, Evaluation  
+**Metrics:** 94% failure rate identified | FP8 root cause analysis  
+**Tech Stack:**  
+![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=flat-square&logo=pytorch&logoColor=white)
+![vLLM](https://img.shields.io/badge/vLLM-009DB7?style=flat-square)
+![Quantization](https://img.shields.io/badge/Quantization-1f77b4?style=flat-square)
+
 **Repository:** [vllm-kvcache-quant-reasoning-eval](https://github.com/oladri-renuka/vllm-kvcache-quant-reasoning-eval)
 
+---
+
 ### Adaptive Multi-Model Agent
+
 LangGraph-based agent that routes requests between fast and strong models based on live task-difficulty classification. Includes input/output guardrails against injection attacks and hallucination.
 
-**Metrics:** 98% routing accuracy, 28.2% cost reduction, 0 false positives  
-**Technologies:** LangGraph, Multi-Model Routing, Guardrails, LLMs  
+**Metrics:** 98% routing accuracy | 28.2% cost reduction | 0 false positives  
+**Tech Stack:**  
+![LangGraph](https://img.shields.io/badge/LangGraph-0ea5e9?style=flat-square)
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
+![LLMs](https://img.shields.io/badge/LLMs-FF6B6B?style=flat-square)
+
 **Repository:** [adaptive_agent](https://github.com/oladri-renuka/adaptive_agent)
 
+---
+
 ### SWE-Researcher: Autonomous Code Generation Agent
+
 Agent that analyzes repositories, implements features via LLM generation, enforces 80%+ test coverage, executes in sandboxed Docker containers, and opens pull requests autonomously with self-correcting debugging capabilities.
 
-**Metrics:** 80%+ test coverage enforcement, automated debugging and PR submission  
-**Technologies:** LLM-based Code Generation, Docker, Testing Frameworks, GitHub API  
+**Metrics:** 80%+ test coverage enforcement | Automated PR submission  
+**Tech Stack:**  
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
+![GitHub API](https://img.shields.io/badge/GitHub%20API-181717?style=flat-square&logo=github&logoColor=white)
+
 **Repository:** [swe-researcher](https://github.com/oladri-renuka/swe-researcher)
 
+---
+
 ### Personal Knowledge Agent (MCP Server)
+
 Persistent belief-graph agent that ingests documents, resolves duplicate entities via semantic matching, detects contradictions across sources, and answers queries with per-fact citations. Exposed as an MCP server for Claude Desktop integration.
 
-**Metrics:** 906 entities tracked, 32 conflicts detected across sources  
-**Technologies:** Knowledge Graphs, Semantic Matching, MCP, Claude Integration  
+**Metrics:** 906 entities tracked | 32 conflicts detected  
+**Tech Stack:**  
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=flat-square&logo=postgresql&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
+![Knowledge Graphs](https://img.shields.io/badge/Knowledge%20Graphs-4285F4?style=flat-square)
+
 **Repository:** [knowledge-agent](https://github.com/oladri-renuka/knowledge-agent)
 
-### Inference Server: Continuous Batching + Paged KV-Cache
-Built three LLM serving backends from scratch to compare naive serial, static batching, and continuous batching with paged attention. Continuous batching exposes the head-of-line blocking problem that motivates production techniques like vLLM's scheduler.
+---
 
-**Metrics:** 2.91 req/s with continuous batching vs 2.51 req/s serial  
-**Technologies:** Batch Scheduling, Paged Attention, vLLM Techniques  
+### Inference Server: Continuous Batching + Paged KV-Cache
+
+Built three LLM serving backends from scratch to compare naive serial, static batching, and continuous batching with paged attention. Demonstrates head-of-line blocking problem that motivates production techniques.
+
+**Metrics:** 2.91 req/s continuous batching vs 2.51 req/s serial  
+**Tech Stack:**  
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
+![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=flat-square&logo=pytorch&logoColor=white)
+![Optimization](https://img.shields.io/badge/Optimization-FFB81C?style=flat-square)
+
 **Repository:** [inference-server](https://github.com/oladri-renuka/inference-server)
 
+---
+
 ### Shadow Deployment Framework
+
 Production ML serving system that runs champion and challenger models in parallel, automatically detecting statistical degradation via hypothesis testing, and rolling back within 60 seconds without human intervention or user-facing latency impact.
 
-**Metrics:** 60s automatic rollback time, zero user-facing latency impact  
-**Technologies:** A/B Testing, Statistical Significance Testing, Production ML  
+**Metrics:** 60s automatic rollback | Zero latency impact  
+**Tech Stack:**  
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat-square)
+![Redis](https://img.shields.io/badge/Redis-DC382D?style=flat-square&logo=redis&logoColor=white)
+
 **Repository:** [shadow-deployment-framework](https://github.com/oladri-renuka/shadow-deployment-framework)
 
 ---
 
-## Technical Expertise
+## Technical Skills
 
-### Machine Learning & AI
-Python, PyTorch, HuggingFace, JAX, TensorFlow, Scikit-learn, XGBoost, LangGraph, vLLM, Inference Optimization, Quantization, Knowledge Graphs, Semantic Matching
+### Core ML/AI
+![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=flat-square&logo=pytorch&logoColor=white)
+![HuggingFace](https://img.shields.io/badge/HuggingFace-FFD21E?style=flat-square)
+![JAX](https://img.shields.io/badge/JAX-0072B2?style=flat-square)
+![vLLM](https://img.shields.io/badge/vLLM-009DB7?style=flat-square)
+![LangGraph](https://img.shields.io/badge/LangGraph-0ea5e9?style=flat-square)
+![Scikit-learn](https://img.shields.io/badge/Scikit--learn-F7931E?style=flat-square&logo=scikit-learn&logoColor=white)
 
-### Languages & Systems
-Python, TypeScript, C++, SQL, Bash, Git, Linux
+### Languages & Development
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
+![C++](https://img.shields.io/badge/C++-00599C?style=flat-square&logo=cplusplus&logoColor=white)
+![SQL](https://img.shields.io/badge/SQL-336791?style=flat-square)
+![Bash](https://img.shields.io/badge/Bash-4EAA25?style=flat-square&logo=gnubash&logoColor=white)
 
 ### Infrastructure & DevOps
-Docker, Kubernetes, Kafka, FastAPI, Redis, PostgreSQL, GitHub Actions, MLOps
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
+![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?style=flat-square&logo=kubernetes&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=flat-square&logo=postgresql&logoColor=white)
+![Redis](https://img.shields.io/badge/Redis-DC382D?style=flat-square&logo=redis&logoColor=white)
+![Kafka](https://img.shields.io/badge/Apache%20Kafka-231F20?style=flat-square&logo=apachekafka&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat-square)
 
-### Research Areas
-LLM Inference Systems, Agentic Architectures, Reasoning Failure Analysis, Quantization-Aware Evaluation, Model Serving, Early-Exit Strategies
+### Research & Analysis
+![Quantization](https://img.shields.io/badge/Quantization-1f77b4?style=flat-square)
+![Inference Optimization](https://img.shields.io/badge/Inference%20Optimization-FFB81C?style=flat-square)
+![Statistical Testing](https://img.shields.io/badge/Statistical%20Testing-4285F4?style=flat-square)
+![Knowledge Graphs](https://img.shields.io/badge/Knowledge%20Graphs-4285F4?style=flat-square)
 
 ---
 
@@ -144,26 +209,25 @@ Woxsen University, Graduated 2025
 
 ## Featured Publications
 
-All research is peer-reviewed and published on arXiv:
+### arXiv Publications
 
-1. **Silent Failures in Quantized LLM Reasoning: A Taxonomy-Based Analysis of Hollow Convergence and Failure Mode Shifts** (IEEE ICTAI 2026 Submission) — [arXiv:2607.09999](https://arxiv.org/abs/2607.09999)
+[![arXiv:2607.09999](https://img.shields.io/badge/arXiv-2607.09999-b31b1b?style=flat-square)](https://arxiv.org/abs/2607.09999)  
+**Silent Failures in Quantized LLM Reasoning: A Taxonomy-Based Analysis of Hollow Convergence and Failure Mode Shifts**  
+*Submitted to IEEE ICTAI 2026*
 
-2. **Token Budget Saturation and Mechanistic Early-Detection of Reasoning Non-Convergence in Chain-of-Thought Models** (COLM 2026 Workshop) — [arXiv:2607.21433](https://arxiv.org/abs/2607.21433)
-
----
-
-## Portfolio
-
-For a complete overview of my work, research, and projects, visit my interactive portfolio:
-
-**[oladri-renuka.github.io/oladri-renuka](https://oladri-renuka.github.io/oladri-renuka/)**
+[![arXiv:2607.21433](https://img.shields.io/badge/arXiv-2607.21433-b31b1b?style=flat-square)](https://arxiv.org/abs/2607.21433)  
+**Token Budget Saturation and Mechanistic Early-Detection of Reasoning Non-Convergence in Chain-of-Thought Models**  
+*Accepted at COLM 2026 Workshop*
 
 ---
 
-## Connect
+## Portfolio & Connect
 
-- Email: [renukaoladriw@gmail.com](mailto:renukaoladriw@gmail.com)
-- LinkedIn: [/in/renuka-oladri-8002b525b](https://www.linkedin.com/in/renuka-oladri-8002b525b/)
-- arXiv: [Research Papers](https://arxiv.org/abs/2607.09999)
+[![Portfolio](https://img.shields.io/badge/Portfolio-oladri--renuka.github.io-0284c7?style=flat-square)](https://oladri-renuka.github.io/oladri-renuka/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Renuka%20Oladri-0a66c2?style=flat-square&logo=linkedin)](https://www.linkedin.com/in/renuka-oladri-8002b525b/)
+[![arXiv](https://img.shields.io/badge/arXiv-Research-b31b1b?style=flat-square)](https://arxiv.org/abs/2607.09999)
+[![Email](https://img.shields.io/badge/Email-Contact-d14836?style=flat-square&logo=gmail)](mailto:renukaoladriw@gmail.com)
+
+---
 
 Interested in collaborating on LLM systems, agentic architectures, reasoning failure analysis, or production ML systems. Open to full-time roles and research assistant positions starting 2027.
