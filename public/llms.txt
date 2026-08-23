@@ -1,0 +1,44 @@
+# Renuka Oladri - AI/ML Engineer & Researcher
+
+I'm an AI/ML engineer and researcher specializing in LLM inference systems, agentic architectures, and reasoning failure analysis.
+
+## Who I Am
+
+MS Applied Machine Learning candidate at the University of Maryland (May 2027). Active contributor to vLLM. Research focus on where and why LLM reasoning silently fails.
+
+## Key Areas
+
+- **LLM Inference**: Continuous batching, paged KV-cache, quantization analysis
+- **Agentic Systems**: Multi-model routing, autonomous code generation, knowledge graphs
+- **Research**: Mechanistic interpretability, reasoning failure taxonomy, production ML
+- **Infrastructure**: MLOps, shadow deployment, serving optimization
+
+## Publications
+
+1. "Silent Failures in Quantized LLM Reasoning" (arXiv:2607.09999) - Submitted to IEEE ICTAI 2026
+2. "Token Efficiency and Early Detection in Reasoning Models" (arXiv:2607.21433) - Accepted at COLM 2026
+3. "VLM Hallucination Across Domain Shift" - Under review for EACL 2027
+
+## Featured Projects
+
+- **FP8 vs int8_per_token_head**: KV-cache quantization analysis for vLLM
+- **Adaptive Multi-Model Agent**: LangGraph-based request router with 98% accuracy
+- **Inference Server**: Continuous batching from scratch
+- **SWE-Researcher**: Autonomous code generation and PR opening
+- **Personal Knowledge Agent**: MCP server for belief-graph reasoning
+- **Shadow Deployment**: Production ML A/B testing framework
+
+## Open Source
+
+Contributor to vLLM, with published findings on KV-cache quantization (Issue #33480).
+
+## Contact & Links
+
+- Email: roladri@umd.edu
+- GitHub: github.com/oladri-renuka
+- LinkedIn: linkedin.com/in/renuka-oladri
+- arXiv: arxiv.org/abs/2607.09999
+
+## How I Work
+
+I combine rigorous experimental methodology with systems thinking. I value reproducible research, honest scoping of limitations, and translating findings into production impact.
