@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Renuka Oladri — AI/ML Engineer</title>
-    <meta name="description" content="AI/ML Engineer building LLM inference systems and agentic architectures that reason reliably at scale.">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Renuka Oladri — AI Engineer</title>
+    <meta name="description" content="AI Engineer building LLM inference systems and agentic architectures.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Proxima+Nova:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         * {
@@ -18,1567 +18,653 @@
         }
 
         :root {
-            --primary: #0284c7;
-            --primary-light: #0ea5e9;
-            --secondary: #06b6d4;
-            --text-dark: #0f172a;
-            --text-light: #f1f5f9;
-            --text-muted: #64748b;
-            --bg-light: #ffffff;
-            --bg-lighter: #f8fafc;
-            --bg-dark: #0f172a;
-            --bg-darker: #1e293b;
-        }
-
-        html.dark-theme {
-            --bg-light: #0f172a;
-            --bg-lighter: #1e293b;
-            --text-dark: #f1f5f9;
-            --text-muted: #94a3b8;
+            --bg: #f5f3f0;
+            --text-dark: #1a2b3d;
+            --text-muted: #5a6b7a;
+            --accent: #0088aa;
+            --border: #e8e6e3;
+            --card-bg: #ffffff;
         }
 
         body {
-            font-family: 'Proxima Nova', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            position: relative;
-            background: #fafafa;
+            font-family: 'Source Sans Pro', sans-serif;
+            background: var(--bg);
             color: var(--text-dark);
-            transition: all 0.3s ease;
             line-height: 1.6;
-            overflow-x: hidden;
+            font-size: 16px;
         }
 
-        body::before {
-            content: "";
-            position: fixed;
-            inset: -10%;
-            z-index: -1;
-            background:
-                radial-gradient(circle at 15% 20%, rgba(59, 130, 246, 0.35), transparent 40%),
-                radial-gradient(circle at 80% 15%, rgba(168, 85, 247, 0.28), transparent 40%),
-                radial-gradient(circle at 70% 70%, rgba(45, 212, 191, 0.3), transparent 40%),
-                radial-gradient(circle at 25% 80%, rgba(236, 72, 153, 0.22), transparent 40%);
-            filter: blur(90px);
-            animation: drift 25s ease-in-out infinite alternate;
-        }
-
-        @keyframes drift {
-            to { transform: translate(2%, -2%) scale(1.04); }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            body::before { animation: none; }
-        }
-
-        html.dark-theme body {
-            background: #0a0e14;
-        }
-
-        /* Header */
         header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-
-        html.dark-theme header {
-            background: rgba(10, 14, 20, 0.7);
-            border-bottom-color: rgba(255, 255, 255, 0.1);
-        }
-
-        .header-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1.2rem 2rem;
+            padding: 2rem 2rem;
+            border-bottom: 1px solid var(--border);
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
+        .header-left {
+            display: flex;
+            flex-direction: column;
+        }
+
         .logo {
-            font-size: 1.4rem;
+            font-family: 'Merriweather', serif;
+            font-size: 1.8rem;
             font-weight: 700;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-decoration: none;
+            color: var(--text-dark);
+            margin-bottom: 0.2rem;
+        }
+
+        .tagline {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
         nav {
             display: flex;
-            gap: 2.5rem;
+            gap: 2rem;
             align-items: center;
         }
 
         nav a {
             text-decoration: none;
             color: var(--text-dark);
-            font-weight: 500;
             font-size: 0.95rem;
-            transition: all 0.3s;
-            position: relative;
+            font-weight: 500;
+            transition: color 0.3s;
         }
 
-        html.dark-theme nav a {
-            color: var(--text-light);
+        nav a:hover {
+            color: var(--accent);
         }
 
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: -6px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary);
-            transition: width 0.3s;
-        }
-
-        nav a:hover::after {
-            width: 100%;
-        }
-
-        .theme-btn {
-            width: 44px;
-            height: 44px;
-            border-radius: 10px;
+        .theme-toggle {
+            background: none;
             border: none;
-            background: var(--bg-lighter);
+            font-size: 1.3rem;
             cursor: pointer;
-            font-size: 1.2rem;
-            transition: all 0.3s;
+            padding: 0.5rem;
         }
 
-        .theme-btn:hover {
-            background: #e2e8f0;
-            transform: scale(1.05);
-        }
-
-        html.dark-theme .theme-btn {
-            background: var(--bg-darker);
-        }
-
-        html.dark-theme .theme-btn:hover {
-            background: #334155;
-        }
-
-        /* Main */
         main {
-            margin-top: 70px;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
         }
 
         section {
-            padding: 5rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            scroll-margin-top: 70px;
-        }
-
-        /* Hero */
-        #hero {
-            min-height: 90vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            background: transparent;
-            padding: 6rem 2rem;
-        }
-
-        .hero-wrapper {
-            max-width: 900px;
-        }
-
-        .hero-label {
-            display: inline-block;
-            padding: 0.6rem 1.4rem;
-            background: rgba(2, 132, 199, 0.2);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            color: var(--primary);
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            letter-spacing: 0.5px;
-            border: 1px solid rgba(2, 132, 199, 0.3);
+            margin-bottom: 5rem;
         }
 
         h1 {
+            font-family: 'Merriweather', serif;
             font-size: 3.5rem;
             line-height: 1.2;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-weight: 800;
-        }
-
-        .hero-subtitle {
-            font-size: 1.3rem;
-            color: var(--text-muted);
-            margin-bottom: 1rem;
-            line-height: 1.8;
-        }
-
-        .hero-description {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            margin-bottom: 2.5rem;
-            line-height: 1.8;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1.2rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 2rem;
-        }
-
-        .btn {
-            padding: 1rem 2rem;
-            border-radius: 10px;
-            font-weight: 600;
-            text-decoration: none;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-size: 1rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.6rem;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: white;
-            box-shadow: 0 8px 20px rgba(2, 132, 199, 0.3);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(2, 132, 199, 0.4);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--primary);
-            border: 2.5px solid var(--primary);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(2, 132, 199, 0.1);
-            transform: translateY(-3px);
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-        }
-
-        .social-link {
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
-            background: var(--bg-lighter);
-            color: var(--primary);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s;
-            font-size: 1.3rem;
-        }
-
-        html.dark-theme .social-link {
-            background: var(--bg-darker);
-        }
-
-        .social-link:hover {
-            background: var(--primary);
-            color: white;
-            transform: translateY(-4px);
-        }
-
-        /* Section Titles */
-        h2 {
-            font-size: 2.8rem;
-            margin-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
             color: var(--text-dark);
             font-weight: 700;
         }
 
-        html.dark-theme h2 {
-            color: var(--text-light);
+        h2 {
+            font-family: 'Merriweather', serif;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--text-dark);
         }
 
-        .section-subtitle {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            margin-bottom: 3rem;
-            max-width: 600px;
-        }
-
-        /* About */
-        #about {
-            background: transparent;
-            text-align: left;
-        }
-
-        .about-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .about-content p {
-            font-size: 1.05rem;
-            color: var(--text-muted);
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
-            text-align: justify;
-        }
-
-        /* Projects */
-        #projects {
-            background: transparent;
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-        }
-
-        @media (max-width: 1024px) {
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        .project-card {
-            background: rgba(255, 255, 255, 0.55);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border-radius: 16px;
-            padding: 2rem;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            transition: all 0.3s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        html.dark-theme .project-card {
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
-        }
-
-        .project-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(2, 132, 199, 0.2);
-            border-color: var(--primary);
-        }
-
-        .project-tag {
-            display: inline-block;
-            padding: 0.4rem 1rem;
-            background: rgba(2, 132, 199, 0.2);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            color: var(--primary);
-            border-radius: 6px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            border: 1px solid rgba(2, 132, 199, 0.3);
-        }
-
-        .project-card h3 {
-            font-size: 1.4rem;
+        h3 {
+            font-family: 'Merriweather', serif;
+            font-size: 1.8rem;
             margin-bottom: 0.8rem;
             color: var(--text-dark);
         }
 
-        html.dark-theme .project-card h3 {
-            color: var(--text-light);
-        }
-
-        .project-card p {
-            font-size: 0.95rem;
+        .subtitle {
+            font-size: 1.1rem;
             color: var(--text-muted);
-            margin-bottom: 1.5rem;
-            line-height: 1.7;
+            margin-bottom: 2rem;
         }
 
-        .metrics {
+        .stats-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-            margin: 1.5rem 0;
-            padding: 1.5rem 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0;
+            margin-bottom: 4rem;
+            border: 1px solid var(--border);
+            border-collapse: collapse;
         }
 
-        html.dark-theme .metrics {
-            border-color: rgba(255, 255, 255, 0.1);
+        .stat {
+            text-align: left;
+            padding: 2.5rem;
+            border-right: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
         }
 
-        .metric {
-            text-align: center;
+        .stat:nth-child(2n) {
+            border-right: none;
         }
 
-        .metric-value {
-            font-size: 1.2rem;
+        .stat:nth-child(n+3) {
+            border-bottom: none;
+        }
+
+        .stat-number {
+            font-family: 'Merriweather', serif;
+            font-size: 3.5rem;
             font-weight: 700;
-            color: var(--primary);
+            color: var(--text-dark);
+            line-height: 1;
+            margin-bottom: 0.5rem;
         }
 
-        .metric-label {
-            font-size: 0.75rem;
+        .stat-label {
+            font-size: 0.85rem;
             color: var(--text-muted);
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            margin-top: 0.3rem;
         }
 
-        .tech-tags {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-            margin-bottom: 1.5rem;
-        }
-
-        .tech-tag {
-            padding: 0.4rem 0.9rem;
-            background: rgba(255, 255, 255, 0.4);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            color: var(--text-dark);
-            border-radius: 6px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        html.dark-theme .tech-tag {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: var(--text-light);
-        }
-
-        .project-link {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-        }
-
-        .project-link:hover {
-            gap: 0.8rem;
-        }
-
-        /* Publications */
-        #publications {
-            background: transparent;
-        }
-
-        /* Experience */
-        #experience {
-            background: transparent;
-        }
-
-        .experience-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-        }
-
-        .exp-card {
-            background: rgba(255, 255, 255, 0.55);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border-radius: 16px;
-            padding: 2rem;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-left: 4px solid var(--primary);
-            transition: all 0.3s;
-        }
-
-        html.dark-theme .exp-card {
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-left: 4px solid var(--primary);
-        }
-
-        .exp-card:hover {
-            box-shadow: 0 12px 30px rgba(2, 132, 199, 0.15);
-        }
-
-        .exp-card h4 {
-            font-size: 1.2rem;
-            color: var(--text-dark);
-            margin-bottom: 0.3rem;
-            font-weight: 700;
-        }
-
-        html.dark-theme .exp-card h4 {
-            color: var(--text-light);
-        }
-
-        .exp-role {
-            font-size: 0.95rem;
-            color: var(--primary);
-            font-weight: 600;
+        .section-label {
+            font-size: 0.75rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
             margin-bottom: 0.5rem;
+            font-weight: 600;
         }
 
-        .exp-date {
-            font-size: 0.85rem;
+        .icon-circle {
+            width: 80px;
+            height: 80px;
+            background: var(--card-bg);
+            border: 2px solid var(--border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            color: var(--accent);
+        }
+
+        p {
             color: var(--text-muted);
+            line-height: 1.8;
             margin-bottom: 1rem;
         }
 
-        .exp-description {
-            color: var(--text-muted);
-            line-height: 1.6;
-        }
-
-        /* Certifications & Awards */
-        #certifications {
-            background: transparent;
-        }
-
-        .certs-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .cert-card {
-            background: rgba(255, 255, 255, 0.55);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
+        .project-card {
+            background: var(--card-bg);
+            padding: 2.5rem;
             border-radius: 16px;
-            padding: 1.8rem;
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            margin-bottom: 2.5rem;
+            border: 1px solid var(--border);
             transition: all 0.3s;
-            text-align: center;
         }
 
-        html.dark-theme .cert-card {
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+        .project-card:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            transform: translateY(-2px);
         }
 
-        .cert-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(2, 132, 199, 0.15);
-            border-color: var(--primary);
+        .project-card h3 {
+            margin-top: 0;
         }
 
-        .cert-card h4 {
-            font-size: 1.1rem;
-            color: var(--text-dark);
-            margin-bottom: 0.5rem;
-            font-weight: 700;
-        }
-
-        html.dark-theme .cert-card h4 {
-            color: var(--text-light);
-        }
-
-        .cert-issuer {
-            font-size: 0.95rem;
-            color: var(--primary);
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .cert-date {
-            font-size: 0.85rem;
-            color: var(--text-muted);
+        .pub-featured {
+            background: var(--card-bg);
+            padding: 3rem;
+            border-radius: 16px;
+            margin-bottom: 3rem;
+            border: 1px solid var(--border);
         }
 
         .pub-grid {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.5rem;
+            margin-top: 2rem;
         }
 
         .pub-card {
-            background: rgba(255, 255, 255, 0.55);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border-radius: 16px;
+            background: var(--card-bg);
             padding: 2.5rem;
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 16px;
+            border: 1px solid var(--border);
             transition: all 0.3s;
         }
 
-        html.dark-theme .pub-card {
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
         .pub-card:hover {
-            box-shadow: 0 15px 40px rgba(2, 132, 199, 0.15);
-            border-color: var(--primary);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
         }
 
         .pub-status {
             display: inline-block;
-            padding: 0.4rem 1rem;
-            background: rgba(16, 185, 129, 0.2);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            color: #10b981;
-            border-radius: 6px;
-            font-size: 0.8rem;
-            font-weight: 600;
+            font-size: 0.75rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
             margin-bottom: 0.8rem;
-            border: 1px solid rgba(16, 185, 129, 0.3);
-        }
-
-        .pub-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-            color: var(--text-dark);
-        }
-
-        html.dark-theme .pub-card h3 {
-            color: var(--text-light);
-        }
-
-        .pub-subtitle {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 1rem;
-        }
-
-        .pub-description {
-            color: var(--text-muted);
-            margin-bottom: 1.5rem;
-            line-height: 1.7;
-        }
-
-        .pub-highlight {
-            background: rgba(2, 132, 199, 0.15);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            border-left: 4px solid var(--primary);
-            padding: 1rem;
-            margin: 1.5rem 0;
-            border-radius: 6px;
-            border: 1px solid rgba(2, 132, 199, 0.2);
-            border-left: 4px solid var(--primary);
-        }
-
-        .pub-highlight strong {
-            color: var(--primary);
-        }
-
-        /* Skills */
-        #skills {
-            background: transparent;
-        }
-
-        #skills h3 {
-            color: var(--text-dark);
-        }
-
-        html.dark-theme #skills h3 {
-            color: var(--text-light);
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-            gap: 1.2rem;
-        }
-
-        .skill-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            gap: 0.6rem;
-            padding: 1.25rem;
-            background: rgba(255, 255, 255, 0.55);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 14px;
-            transition: all 0.3s;
-            cursor: default;
-        }
-
-        html.dark-theme .skill-item {
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .skill-item:hover {
-            transform: translateY(-4px);
-            background: rgba(255, 255, 255, 0.7);
-        }
-
-        html.dark-theme .skill-item:hover {
-            background: rgba(15, 23, 42, 0.7);
-        }
-
-        .skill-item img {
-            width: 40px;
-            height: 40px;
-            object-fit: contain;
-        }
-
-        .skill-item i {
-            font-size: 2rem;
-            color: var(--primary);
-        }
-
-        .skill-item span {
-            font-size: 0.85rem;
-            color: var(--text-dark);
             font-weight: 600;
-            line-height: 1.2;
         }
 
-        html.dark-theme .skill-item span {
-            color: var(--text-light);
-        }
-
-        .skill-group {
-            display: none;
-        }
-
-        /* Process */
-        #process {
-            background: transparent;
-        }
-
-        .process-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 2rem;
-        }
-
-        .process-step {
-            background: rgba(255, 255, 255, 0.55);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border-radius: 16px;
+        .experience-card {
+            background: var(--card-bg);
             padding: 2rem;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            transition: all 0.3s;
-            text-align: center;
-        }
-
-        html.dark-theme .process-step {
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .process-step:hover {
-            box-shadow: 0 15px 35px rgba(2, 132, 199, 0.15);
-        }
-
-        .step-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 1rem;
-            opacity: 0.3;
-        }
-
-        .process-step h4 {
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-            color: var(--text-dark);
-        }
-
-        html.dark-theme .process-step h4 {
-            color: var(--text-light);
-        }
-
-        .process-step p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        /* Contact */
-        #contact {
-            background: rgba(255, 255, 255, 0.55);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            color: var(--text-dark);
-            text-align: center;
-            border-radius: 24px;
-            margin: 4rem auto;
-            padding: 6rem 3rem;
-            position: relative;
-            width: calc(100% - 4rem);
-            max-width: 900px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* Light mode */
-        #contact h2 {
-            color: #000000 !important;
-        }
-
-        #contact p {
-            color: #1e293b !important;
-        }
-
-        /* Dark mode */
-        html.dark-theme #contact h2 {
-            color: #f1f5f9 !important;
-        }
-
-        html.dark-theme #contact p {
-            color: #cbd5e1 !important;
-        }
-
-        html.dark-theme #contact {
-            background: rgba(255, 255, 255, 0.06);
-            border-color: rgba(255, 255, 255, 0.1);
-        }
-
-        html.dark-theme #contact {
-            color: var(--text-light);
-        }
-
-        #contact h2 {
-            color: var(--text-dark);
-            font-size: 2.4rem;
-        }
-
-        html.dark-theme #contact h2 {
-            color: var(--text-light);
-        }
-
-        #contact .section-subtitle {
-            color: var(--text-muted);
-            opacity: 1;
-        }
-
-        #contact h2 {
-            color: white;
-        }
-
-        #contact .section-subtitle {
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        .contact-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
+            border-radius: 12px;
             margin-bottom: 2rem;
-            margin-top: 2rem;
+            border: 1px solid var(--border);
         }
 
-        .contact-btn {
-            padding: 0.9rem 1.8rem;
+        .job-title {
+            font-family: 'Merriweather', serif;
+            font-size: 1.3rem;
+            color: var(--text-dark);
+            margin-bottom: 0.3rem;
+        }
+
+        .job-role {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .job-date {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .job-description ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .job-description li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--text-muted);
+        }
+
+        .job-description li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+            margin-right: 1rem;
+        }
+
+        .cta-button:hover {
+            background: #006688;
+        }
+
+        .cta-button-secondary {
+            display: inline-block;
             background: transparent;
-            color: var(--primary);
-            border: 2px solid var(--primary);
+            color: var(--accent);
+            padding: 0.8rem 1.5rem;
+            border: 2px solid var(--accent);
             border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s;
-            cursor: pointer;
         }
 
-        .contact-btn:hover {
-            background: rgba(2, 132, 199, 0.1);
-            transform: translateY(-2px);
+        .cta-button-secondary:hover {
+            background: var(--accent);
+            color: white;
         }
 
-        .contact-links {
-            margin-top: 2.5rem;
-            padding-top: 2.5rem;
-            border-top: 1px solid var(--text-muted);
-            border-top-opacity: 0.2;
+        .social-links {
+            margin-top: 2rem;
             display: flex;
-            justify-content: flex-start;
             gap: 2rem;
-            flex-wrap: wrap;
         }
 
-        .contact-links a {
-            color: var(--primary);
+        .social-links a {
+            color: var(--accent);
             text-decoration: none;
             font-weight: 600;
-            transition: opacity 0.3s;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--text-dark);
+        }
+
+        .skill-group {
+            margin-bottom: 3rem;
+        }
+
+        .skill-group-title {
+            font-family: 'Merriweather', serif;
+            font-size: 1.2rem;
+            color: var(--text-dark);
+            margin-bottom: 1.2rem;
+        }
+
+        .skill-list {
             display: flex;
-            align-items: center;
-            gap: 0.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
         }
 
-        .contact-links a:hover {
-            opacity: 0.7;
-        }
-
-        @media (max-width: 768px) {
-            #contact {
-                text-align: center;
-                padding: 4rem 2rem;
-            }
-
-            .contact-links {
-                justify-content: center;
-            }
-        }
-
-        /* Footer */
-        footer {
-            background: var(--bg-lighter);
-            border-top: 1px solid #e2e8f0;
-            padding: 2rem;
-            text-align: center;
+        .skill-tag {
+            background: var(--card-bg);
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
             color: var(--text-muted);
+            font-size: 0.95rem;
         }
 
-        html.dark-theme footer {
-            border-top-color: #334155;
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.9rem;
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2.2rem;
-            }
-
-            h2 {
-                font-size: 2rem;
+            header {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
             }
 
             nav {
-                gap: 1.5rem;
+                flex-direction: column;
+                gap: 1rem;
             }
 
-            .metrics {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            .stats-grid {
                 grid-template-columns: 1fr;
             }
 
-            section {
-                padding: 3rem 1rem;
+            .pub-grid {
+                grid-template-columns: 1fr;
             }
-
-            .skills-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        section {
-            animation: fadeIn 0.6s ease-out;
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="header-container">
-            <a href="#hero" class="logo">Renuka Oladri</a>
-            <nav>
-                <a href="#about">About</a>
-                <a href="#projects">Projects</a>
-                <a href="#publications">Research</a>
-                <a href="#experience">Experience</a>
-                <a href="#skills">Skills</a>
-                <a href="#contact">Contact</a>
-                <button class="theme-btn" id="theme-toggle">🌙</button>
-            </nav>
+        <div class="header-left">
+            <div class="logo">Renuka Oladri</div>
+            <div class="tagline">AI/ML Researcher</div>
         </div>
+        <nav>
+            <a href="#research">Research</a>
+            <a href="#projects">Projects</a>
+            <a href="#experience">Experience</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
+            <button class="theme-toggle" id="theme-toggle">🌙</button>
+        </nav>
     </header>
 
     <main>
         <!-- Hero -->
         <section id="hero">
-            <div class="hero-wrapper">
-                <div class="hero-label">🚀 AI/ML ENGINEER & RESEARCHER</div>
-                <h1>Renuka Oladri</h1>
-                <p class="hero-subtitle">Building LLM inference systems and agentic architectures that reason reliably at scale</p>
-                <p class="hero-description">MS Applied ML at University of Maryland</p>
-                <div class="cta-buttons">
-                    <a href="#contact" class="btn btn-primary">
-                        <i class="fas fa-arrow-right"></i> Get in Touch
-                    </a>
-                    <a href="https://github.com/oladri-renuka" target="_blank" class="btn btn-secondary">
-                        <i class="fab fa-github"></i> View Work
-                    </a>
+            <h1>Building LLM inference systems and agentic architectures that reason reliably at scale</h1>
+            <p class="subtitle">MS Applied Machine Learning • University of Maryland</p>
+
+            <div class="stats-grid">
+                <div class="stat">
+                    <div class="stat-number">2</div>
+                    <div class="stat-label">Publications</div>
                 </div>
-                <div class="social-links">
-                    <a href="mailto:renukaoladriw@gmail.com" class="social-link" title="Email">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                    <a href="https://github.com/oladri-renuka" target="_blank" class="social-link" title="GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/renuka-oladri-8002b525b/" target="_blank" class="social-link" title="LinkedIn">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="https://arxiv.org/abs/2607.09999" target="_blank" class="social-link" title="arXiv">
-                        <i class="fas fa-book"></i>
-                    </a>
+                <div class="stat">
+                    <div class="stat-number">6</div>
+                    <div class="stat-label">Featured Projects</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">4</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">94%</div>
+                    <div class="stat-label">Bug Impact Found</div>
                 </div>
             </div>
         </section>
 
-        <!-- About -->
-        <section id="about">
-            <h2>About</h2>
-            <p class="section-subtitle">Who I am and what drives my work</p>
-            <div class="about-content">
-                <p>I build agent architectures and LLM inference systems, along with the evaluation methods that expose where reasoning silently fails. Recently, I found a KV-cache quantization bug in vLLM that causes 94% generation collapse under default settings, and built a linear probe that predicts stuck reasoning chains from a model's internal activations before they're behaviorally obvious (AUC 0.612 vs. 0.445 for a behavioral baseline).</p>
-                <p>I'm an MS Applied Machine Learning candidate at the University of Maryland. The vLLM findings are referenced in the project's issue tracker, and my recent work was accepted to the COLM 2026 Efficient Reasoning Workshop.</p>
-                <p>I care about reproducibility and rigorous evaluation, and I'd rather scope a limitation honestly than oversell a result.</p>
+        <!-- Research Vision -->
+        <section id="research-vision">
+            <div class="section-label">Research Focus</div>
+            <h2>Understanding where and why reasoning silently fails</h2>
+
+            <div class="research-vision">
+                <h4>Current Work</h4>
+                <p>I discover critical bugs in LLM systems that cause silent reasoning failures. Recently, I found a KV-cache quantization bug in vLLM that causes 94% generation collapse under default settings, and built a linear probe that predicts stuck reasoning chains from model activations (AUC 0.612 vs 0.445 baseline).</p>
             </div>
+
+            <p>My research on quantization-induced reasoning failures has been submitted to IEEE ICTAI 2026, and work on mechanistic early-detection of reasoning non-convergence was accepted to the COLM 2026 Efficient Reasoning Workshop. I care deeply about reproducibility and rigorous evaluation.</p>
         </section>
 
         <!-- Projects -->
         <section id="projects">
-            <h2>Featured Projects</h2>
-            <p class="section-subtitle">Systems spanning LLM inference, agentic architectures, and production ML</p>
+            <div class="section-label">Featured Projects</div>
+            <h2>AI systems spanning LLM inference and agentic architectures</h2>
 
-            <div class="projects-grid">
-                <div class="project-card">
-                    <span class="project-tag">LLM Systems</span>
-                    <h3>FP8 vs int8_per_token_head KV-Cache Quantization Reasoning Eval</h3>
-                    <p>Investigated whether vLLM's KV-cache quantization modes cause silent reasoning failures. Found that calibrated FP8 causes near-total generation collapse (94% failure) while int8_per_token_head closely tracks unquantized baseline accuracy. Findings referenced in vLLM's issue tracker.</p>
-                    <div class="metrics">
-                        <div class="metric">
-                            <div class="metric-value">94%</div>
-                            <div class="metric-label">Failure Rate</div>
-                        </div>
-                        <div class="metric">
-                            <div class="metric-value">FP8</div>
-                            <div class="metric-label">Root Cause</div>
-                        </div>
-                        <div class="metric">
-                            <div class="metric-value">vLLM</div>
-                            <div class="metric-label">Referenced</div>
-                        </div>
-                    </div>
-                    <div class="tech-tags">
-                        <span class="tech-tag">vLLM</span>
-                        <span class="tech-tag">Quantization</span>
-                        <span class="tech-tag">KV-Cache</span>
-                    </div>
-                    <a href="https://github.com/oladri-renuka/vllm-kvcache-quant-reasoning-eval" target="_blank" class="project-link">
-                        <i class="fab fa-github"></i> View on GitHub
-                    </a>
-                </div>
+            <div class="project-card">
+                <div class="icon-circle"><i class="fas fa-microchip"></i></div>
+                <div class="section-label">AI & LLM Infrastructure</div>
+                <h3>vLLM KV-Cache Quantization Reasoning Evaluation</h3>
+                <p>Investigated whether vLLM's KV-cache quantization modes cause silent reasoning failures. Found that calibrated FP8 causes near-total generation collapse (94% failure) while int8_per_token_head closely tracks unquantized baseline accuracy. Findings referenced in vLLM's issue tracker.</p>
+                <a href="https://github.com/oladri-renuka/vllm-kvcache-quant-reasoning-eval" class="cta-button-secondary" target="_blank">View on GitHub →</a>
+            </div>
 
-                <div class="project-card">
-                    <span class="project-tag">Agentic AI</span>
-                    <h3>Adaptive Multi-Model Agent</h3>
-                    <p>LangGraph-based agent that routes requests between fast and strong models based on live task-difficulty classification, with input/output guardrails against injection and hallucination.</p>
-                    <div class="metrics">
-                        <div class="metric">
-                            <div class="metric-value">98%</div>
-                            <div class="metric-label">Routing Accuracy</div>
-                        </div>
-                        <div class="metric">
-                            <div class="metric-value">28.2%</div>
-                            <div class="metric-label">Cost Reduction</div>
-                        </div>
-                        <div class="metric">
-                            <div class="metric-value">0</div>
-                            <div class="metric-label">False Positives</div>
-                        </div>
-                    </div>
-                    <div class="tech-tags">
-                        <span class="tech-tag">LangGraph</span>
-                        <span class="tech-tag">Multi-Model</span>
-                        <span class="tech-tag">Guardrails</span>
-                    </div>
-                    <a href="https://github.com/oladri-renuka/adaptive_agent" target="_blank" class="project-link">
-                        <i class="fab fa-github"></i> View on GitHub
-                    </a>
-                </div>
+            <div class="project-card">
+                <div class="icon-circle"><i class="fas fa-robot"></i></div>
+                <div class="section-label">AI & Agentic Systems</div>
+                <h3>Adaptive Multi-Model Agent</h3>
+                <p>LangGraph-based agent that routes requests between fast and strong models based on live task-difficulty classification, with input/output guardrails against injection and hallucination. Achieves 98% routing accuracy with 28.2% cost reduction.</p>
+                <a href="https://github.com/oladri-renuka/adaptive_agent" class="cta-button-secondary" target="_blank">View on GitHub →</a>
+            </div>
 
-                <div class="project-card">
-                    <span class="project-tag">Code Generation</span>
-                    <h3>SWE-Researcher: Autonomous Code Generation Agent</h3>
-                    <p>Agent that analyzes a repository, implements features via LLM generation, enforces 80%+ test coverage, executes in sandboxed Docker containers, and opens pull requests autonomously with self-correcting debugging.</p>
-                    <div class="metrics">
-                        <div class="metric">
-                            <div class="metric-value">80%+</div>
-                            <div class="metric-label">Test Coverage</div>
-                        </div>
-                        <div class="metric">
-                            <div class="metric-value">Docker</div>
-                            <div class="metric-label">Sandbox</div>
-                        </div>
-                        <div class="metric">
-                            <div class="metric-value">Auto PR</div>
-                            <div class="metric-label">Autonomy</div>
-                        </div>
-                    </div>
-                    <div class="tech-tags">
-                        <span class="tech-tag">LLM</span>
-                        <span class="tech-tag">Docker</span>
-                        <span class="tech-tag">Testing</span>
-                    </div>
-                    <a href="https://github.com/oladri-renuka/swe-researcher" target="_blank" class="project-link">
-                        <i class="fab fa-github"></i> View on GitHub
-                    </a>
-                </div>
+            <div class="project-card">
+                <div class="icon-circle"><i class="fas fa-code"></i></div>
+                <div class="section-label">AI & Code Generation</div>
+                <h3>SWE-Researcher: Autonomous Code Generation Agent</h3>
+                <p>Agent that analyzes a repository, implements features via LLM generation, enforces 80%+ test coverage, executes in sandboxed Docker containers, and opens pull requests autonomously with self-correcting debugging.</p>
+                <a href="https://github.com/oladri-renuka/swe-researcher" class="cta-button-secondary" target="_blank">View on GitHub →</a>
+            </div>
 
-                <div class="project-card">
-                    <span class="project-tag">Knowledge Systems</span>
-                    <h3>Personal Knowledge Agent (MCP Server)</h3>
-                    <p>Persistent belief-graph agent that ingests documents, resolves duplicate entities via semantic matching, detects contradictions across sources, and answers queries with per-fact citations. Exposed as MCP server for Claude Desktop.</p>
-                    <div class="metrics">
-                        <div class="metric">
-                            <div class="metric-value">906</div>
-                            <div class="metric-label">Entities</div>
-                        </div>
-                        <div class="metric">
-                            <div class="metric-value">32</div>
-                            <div class="metric-label">Conflicts</div>
-                        </div>
-                        <div class="metric">
-                            <div class="metric-value">9</div>
-                            <div class="metric-label">Embeddings</div>
-                        </div>
-                    </div>
-                    <div class="tech-tags">
-                        <span class="tech-tag">MCP</span>
-                        <span class="tech-tag">Knowledge Graph</span>
-                        <span class="tech-tag">Claude</span>
-                    </div>
-                    <a href="https://github.com/oladri-renuka/knowledge-agent" target="_blank" class="project-link">
-                        <i class="fab fa-github"></i> View on GitHub
-                    </a>
-                </div>
+            <div class="project-card">
+                <div class="icon-circle"><i class="fas fa-project-diagram"></i></div>
+                <div class="section-label">AI & Knowledge Systems</div>
+                <h3>Personal Knowledge Agent (MCP Server)</h3>
+                <p>Persistent belief-graph agent that ingests documents, resolves duplicate entities via semantic matching, detects contradictions across sources, and answers queries with per-fact citations. Exposed as MCP server for Claude Desktop.</p>
+                <a href="https://github.com/oladri-renuka/knowledge-agent" class="cta-button-secondary" target="_blank">View on GitHub →</a>
+            </div>
 
-                <div class="project-card">
-                    <span class="project-tag">Infrastructure</span>
-                    <h3>Inference Server: Continuous Batching + Paged KV-Cache</h3>
-                    <p>Built three LLM serving backends from scratch to compare naive serial, static batching, and continuous batching with paged attention. Continuous batching exposes the head-of-line blocking problem that motivates production techniques.</p>
-                    <div class="metrics">
-                        <div class="metric">
-                            <div class="metric-value">2.91</div>
-                            <div class="metric-label">Continuous req/s</div>
-                        </div>
-                        <div class="metric">
-                            <div class="metric-value">2.51</div>
-                            <div class="metric-label">Serial req/s</div>
-                        </div>
-                        <div class="metric">
-                            <div class="metric-value">Paged</div>
-                            <div class="metric-label">Attention</div>
-                        </div>
-                    </div>
-                    <div class="tech-tags">
-                        <span class="tech-tag">Batching</span>
-                        <span class="tech-tag">KV-Cache</span>
-                        <span class="tech-tag">vLLM</span>
-                    </div>
-                    <a href="https://github.com/oladri-renuka/inference-server" target="_blank" class="project-link">
-                        <i class="fab fa-github"></i> View on GitHub
-                    </a>
-                </div>
+            <div class="project-card">
+                <div class="icon-circle"><i class="fas fa-server"></i></div>
+                <div class="section-label">AI & LLM Infrastructure</div>
+                <h3>Inference Server: Continuous Batching + Paged KV-Cache</h3>
+                <p>Built three LLM serving backends from scratch to compare naive serial, static batching, and continuous batching with paged attention. Demonstrates head-of-line blocking problem that motivates production techniques.</p>
+                <a href="https://github.com/oladri-renuka/inference-server" class="cta-button-secondary" target="_blank">View on GitHub →</a>
+            </div>
 
-                <div class="project-card">
-                    <span class="project-tag">MLOps</span>
-                    <h3>Shadow Deployment Framework</h3>
-                    <p>Production ML serving system that runs champion and challenger models in parallel, automatically detecting statistical degradation and rolling back within 60 seconds without human intervention or user-facing latency impact.</p>
-                    <div class="metrics">
-                        <div class="metric">
-                            <div class="metric-value">60s</div>
-                            <div class="metric-label">Rollback Time</div>
-                        </div>
-                        <div class="metric">
-                            <div class="metric-value">0</div>
-                            <div class="metric-label">Latency Impact</div>
-                        </div>
-                        <div class="metric">
-                            <div class="metric-value">Auto</div>
-                            <div class="metric-label">Detection</div>
-                        </div>
-                    </div>
-                    <div class="tech-tags">
-                        <span class="tech-tag">Statistical Tests</span>
-                        <span class="tech-tag">A/B Testing</span>
-                        <span class="tech-tag">Production</span>
-                    </div>
-                    <a href="https://github.com/oladri-renuka/shadow-deployment-framework" target="_blank" class="project-link">
-                        <i class="fab fa-github"></i> View on GitHub
-                    </a>
-                </div>
+            <div class="project-card">
+                <div class="icon-circle"><i class="fas fa-chart-line"></i></div>
+                <div class="section-label">AI & MLOps</div>
+                <h3>Shadow Deployment Framework</h3>
+                <p>Production ML serving system that runs champion and challenger models in parallel, automatically detecting statistical degradation via hypothesis testing, and rolling back within 60 seconds without human intervention or latency impact.</p>
+                <a href="https://github.com/oladri-renuka/shadow-deployment-framework" class="cta-button-secondary" target="_blank">View on GitHub →</a>
             </div>
         </section>
 
         <!-- Publications -->
         <section id="publications">
-            <h2>Publications</h2>
-            <p class="section-subtitle">Peer-reviewed research on reasoning failures and efficient inference</p>
+            <div class="section-label">Research Publications</div>
+            <h2>AI research on reasoning failures and efficient inference</h2>
 
-            <div class="pub-grid">
-                <div class="pub-card">
-                    <span class="pub-status">Submitted to IEEE ICTAI 2026</span>
-                    <h3>Silent Failures in Quantized LLM Reasoning</h3>
-                    <p class="pub-subtitle">A Taxonomy-Based Analysis of Hollow Convergence and Failure Mode Shifts</p>
-                    <p class="pub-description">Comprehensive taxonomy analyzing failure modes when quantizing reasoning models to NF4 precision, revealing the "Hollow Convergence" phenomenon where models output correct answers while internal reasoning completely breaks.</p>
-                    <div class="pub-highlight">
-                        <strong>Key Finding:</strong> 94% generation collapse under default FP8 quantization
-                    </div>
-                    <a href="https://arxiv.org/abs/2607.09999" target="_blank" class="project-link">
-                        <i class="fas fa-book"></i> Read on arXiv
-                    </a>
-                </div>
+            <div class="pub-featured">
+                <img src="images/silent-failures-convergence-rate.png" style="width: 100%; height: auto; border-radius: 12px; margin-bottom: 2rem;" alt="Hollow Convergence Rate by Model and Quantization Precision">
+                <img src="images/silent-failures-failure-modes.png" style="width: 100%; height: auto; border-radius: 12px; margin-bottom: 2rem;" alt="Wrong-Answer Failure Mode Distribution">
+                <img src="images/silent-failures-benchmark-comparison.png" style="width: 100%; height: auto; border-radius: 12px; margin-bottom: 2rem;" alt="Hollow Convergence Rate per Benchmark">
+                <div class="pub-status">Featured Research — IEEE ICTAI 2026</div>
+                <h3>Silent Failures in Quantized LLM Reasoning</h3>
+                <p><strong>A Taxonomy-Based Analysis of Hollow Convergence and Failure Mode Shifts</strong></p>
+                <p style="color: var(--accent); font-weight: 500; border-left: 4px solid var(--accent); padding-left: 1rem; margin: 1.5rem 0;">Comprehensive taxonomy analyzing failure modes when quantizing reasoning models to low precision, revealing the "Hollow Convergence" phenomenon where models output correct answers while internal reasoning completely breaks.</p>
+                <a href="https://arxiv.org/abs/2607.09999" class="cta-button-secondary" target="_blank">Read on arXiv →</a>
+            </div>
 
-                <div class="pub-card">
-                    <span class="pub-status">Accepted at COLM 2026 Workshop</span>
-                    <h3>Token Budget Saturation and Mechanistic Early-Detection</h3>
-                    <p class="pub-subtitle">of Reasoning Non-Convergence in Chain-of-Thought Models</p>
-                    <p class="pub-description">Using activation probes on intermediate layers to predict whether chain-of-thought reasoning will converge, enabling efficient early-exit strategies in inference.</p>
-                    <div class="pub-highlight">
-                        <strong>Key Finding:</strong> AUC 0.612 on convergence prediction vs 0.445 baseline
+            <div class="pub-card" style="margin-top: 2.5rem; padding: 0; overflow: hidden;">
+                <img src="images/token-budget-early-detection.png" style="width: 100%; height: auto; display: block;" alt="Early Detection of Reasoning Non-Convergence">
+                <div style="padding: 2.5rem;">
+                    <div class="pub-status">COLM 2026 Efficient Reasoning Workshop</div>
+                    <h3>Token Budget Saturation & Early-Detection of Reasoning Non-Convergence</h3>
+                    <p style="color: var(--accent); font-weight: 500; border-left: 4px solid var(--accent); padding-left: 1rem; margin: 1.5rem 0;">Using activation probes on intermediate layers to predict whether chain-of-thought reasoning will converge, enabling efficient early-exit strategies in inference.</p>
+                    <p>AUC 0.612 vs 0.445 behavioral baseline. Mechanistic approach to detecting reasoning failures before they become behaviorally obvious.</p>
+                    <div style="margin-top: 2rem; display: flex; gap: 1rem;">
+                        <a href="https://arxiv.org/abs/2607.21433" class="cta-button-secondary" target="_blank">arXiv →</a>
                     </div>
-                    <a href="https://arxiv.org/abs/2607.21433" target="_blank" class="project-link">
-                        <i class="fas fa-book"></i> Read on arXiv
-                    </a>
                 </div>
             </div>
         </section>
 
         <!-- Experience -->
         <section id="experience">
-            <h2>Experience</h2>
-            <p class="section-subtitle">Professional roles and research positions</p>
+            <div class="section-label">Professional Background</div>
+            <h2>Experience & roles</h2>
 
-            <div class="experience-grid">
-                <div class="exp-card">
-                    <h4>HARMAN International (Samsung)</h4>
-                    <div class="exp-role">AI Data and Analytics Intern</div>
-                    <div class="exp-date">Dec 2024 – Jun 2025 • Remote, India</div>
-                    <div class="exp-description">
-                        <ul style="margin: 0; color: var(--text-muted);">
-                            <li>Evaluated proprietary agentic framework across tool calling, memory management, and variable input sizes.</li>
-                            <li>Built TypeScript testing agent using AST parsing, achieving <strong>93% average code coverage</strong> across 50+ enterprise modules.</li>
-                            <li>Benchmarked test case generation against GitHub Copilot across 10+ quality dimensions.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="exp-card">
-                    <h4>Woxsen University</h4>
-                    <div class="exp-role">Research Assistant</div>
-                    <div class="exp-date">Aug 2022 – Dec 2024 • India</div>
-                    <div class="exp-description">
-                        <ul style="margin: 0; color: var(--text-muted);">
-                            <li>Built end-to-end Random Forest Regression pipeline for battery charging prediction with 4-person team.</li>
-                            <li>Achieved <strong>90–95% prediction accuracy</strong> on sensor data preprocessing and model validation.</li>
-                            <li>Won <strong>Best Student for Research Inclination Award</strong>.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="exp-card">
-                    <h4>AppsTek Corp</h4>
-                    <div class="exp-role">Research Intern</div>
-                    <div class="exp-date">Feb 2023 – Jul 2023 • India</div>
-                    <div class="exp-description">
-                        <ul style="margin: 0; color: var(--text-muted);">
-                            <li>Built multimodal sentiment classifier combining video frames, audio, and transcripts for Context-Based Video Sentiment Analysis.</li>
-                            <li>Achieved <strong>90%+ accuracy</strong> across 3 labels and demoed results to AI research team.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="exp-card">
-                    <h4>SeriGreen Technologies</h4>
-                    <div class="exp-role">Junior Data Analyst Intern</div>
-                    <div class="exp-date">Feb 2024 – Jul 2024 • India</div>
-                    <div class="exp-description">
-                        <ul style="margin: 0; color: var(--text-muted);">
-                            <li>Analyzed 10K–100K-record cocoon market datasets to surface peak sale-rate conditions against quality, temperature, and weather signals.</li>
-                            <li>Built MERN-stack farm management web app operationalizing insights and presented findings directly to founders.</li>
-                        </ul>
-                    </div>
+            <div class="experience-card">
+                <div class="job-title">HARMAN International (Samsung)</div>
+                <div class="job-role">AI Data and Analytics Intern</div>
+                <div class="job-date">Dec 2024 – Jun 2025 | Remote, India</div>
+                <div class="job-description">
+                    <ul>
+                        <li>Evaluated proprietary agentic framework across tool calling, memory management, and variable input sizes</li>
+                        <li>Built TypeScript testing agent using AST parsing, achieving 93% average code coverage across 50+ enterprise modules</li>
+                        <li>Benchmarked test case generation against GitHub Copilot across 10+ quality dimensions</li>
+                    </ul>
                 </div>
             </div>
-        </section>
 
-        <!-- Certifications & Awards -->
-        <section id="certifications">
-            <h2>Certifications & Awards</h2>
-            <p class="section-subtitle">Recognition and professional credentials</p>
-
-            <div class="certs-grid">
-                <div class="cert-card">
-                    <h4>Dean's List Certificate</h4>
-                    <div class="cert-issuer">Woxsen University</div>
-                    <div class="cert-date">Graduated 2025</div>
-                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.8rem;">Academic excellence recognition</p>
+            <div class="experience-card">
+                <div class="job-title">Woxsen University</div>
+                <div class="job-role">Research Assistant</div>
+                <div class="job-date">Aug 2022 – Dec 2024 | India</div>
+                <div class="job-description">
+                    <ul>
+                        <li>Built end-to-end Random Forest Regression pipeline for battery charging prediction with 4-person team</li>
+                        <li>Achieved 90–95% prediction accuracy on sensor data preprocessing and model validation</li>
+                        <li>Won Best Student for Research Inclination Award</li>
+                    </ul>
                 </div>
+            </div>
 
-                <div class="cert-card">
-                    <h4>Best Student for Research Inclination Award</h4>
-                    <div class="cert-issuer">Woxsen University</div>
-                    <div class="cert-date">Graduated 2025</div>
-                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.8rem;">Recognition for research contribution</p>
+            <div class="experience-card">
+                <div class="job-title">AppsTek Corp</div>
+                <div class="job-role">Research Intern</div>
+                <div class="job-date">Feb 2023 – Jul 2023 | India</div>
+                <div class="job-description">
+                    <ul>
+                        <li>Built multimodal sentiment classifier combining video frames, audio, and transcripts</li>
+                        <li>Achieved 90%+ accuracy across 3 labels and demoed results to AI research team</li>
+                    </ul>
                 </div>
+            </div>
 
-                <div class="cert-card">
-                    <h4>Best Demonstration Award</h4>
-                    <div class="cert-issuer">National Level Hackathon</div>
-                    <div class="cert-date">Oriental Institute of Science and Technology, Bhopal • 2023</div>
-                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.8rem;">Weather prediction model</p>
-                </div>
-
-                <div class="cert-card">
-                    <h4>Agentic AI Nanodegree</h4>
-                    <div class="cert-issuer">Udacity</div>
-                    <div class="cert-date">Jan 2026</div>
-                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.8rem;">Advanced agentic systems and multi-agent orchestration</p>
-                </div>
-
-                <div class="cert-card">
-                    <h4>Oracle Cloud Infrastructure AI Foundations Associate</h4>
-                    <div class="cert-issuer">Oracle</div>
-                    <div class="cert-date">Dec 2025</div>
-                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.8rem;">Cloud infrastructure and AI deployment certification</p>
+            <div class="experience-card">
+                <div class="job-title">SeriGreen Technologies</div>
+                <div class="job-role">Junior Data Analyst Intern</div>
+                <div class="job-date">Feb 2024 – Jul 2024 | India</div>
+                <div class="job-description">
+                    <ul>
+                        <li>Analyzed 10K–100K-record cocoon market datasets to surface peak sale-rate conditions</li>
+                        <li>Built MERN-stack farm management web app and presented findings to founders</li>
+                    </ul>
                 </div>
             </div>
         </section>
 
         <!-- Skills -->
         <section id="skills">
-            <h2>Skills & Expertise</h2>
-            <p class="section-subtitle">Technical stack across AI/ML systems, infrastructure, and research</p>
+            <div class="section-label">Technical Expertise</div>
+            <h2>Core competencies</h2>
 
-            <!-- Languages -->
-            <div style="margin-bottom: 3rem;">
-                <h3 style="font-size: 1.3rem; margin-bottom: 1.5rem; color: var(--text-dark); font-weight: 600;">Languages</h3>
-                <div class="skills-grid" style="grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));">
-                    <div class="skill-item">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvygkXP-NDi1MJ-wTvQVnJokpXQgwPFmZ4yJsz3tq_sA&s=10" alt="Python">
-                        <span>Python</span>
-                    </div>
-                    <div class="skill-item">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxJrX9u91qRQlnIVCvoDpuFlQjL52ti8hlmHZlVlVNmg&s=10" alt="C++">
-                        <span>C++</span>
-                    </div>
-                    <div class="skill-item">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpUyHrjwwfXUyvbwJSqt9BcZ1egqKlT6N6DTtK8BCKPQ&s=10" alt="CUDA">
-                        <span>CUDA</span>
-                    </div>
-                    <div class="skill-item">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZR1vXDvTDmwubdTvAa7un8zkK7xZAUpLNQ28rhw9DlQ&s=10" alt="SQL">
-                        <span>SQL</span>
-                    </div>
+            <div class="skill-group">
+                <div class="skill-group-title">Machine Learning & AI</div>
+                <div class="skill-list">
+                    <span class="skill-tag">PyTorch</span>
+                    <span class="skill-tag">HuggingFace</span>
+                    <span class="skill-tag">JAX</span>
+                    <span class="skill-tag">vLLM</span>
+                    <span class="skill-tag">LangGraph</span>
+                    <span class="skill-tag">Scikit-learn</span>
+                    <span class="skill-tag">Quantization</span>
+                    <span class="skill-tag">Inference Optimization</span>
                 </div>
             </div>
 
-            <!-- ML Frameworks -->
-            <div style="margin-bottom: 3rem;">
-                <h3 style="font-size: 1.3rem; margin-bottom: 1.5rem; color: var(--text-dark); font-weight: 600;">ML Frameworks</h3>
-                <div class="skills-grid" style="grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));">
-                    <div class="skill-item">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrxlC0iv6L9kk91MRawQWJxTwOSCYafW0kRbfV2_ryfw&s=10" alt="PyTorch">
-                        <span>PyTorch</span>
-                    </div>
-                    <div class="skill-item">
-                        <img src="https://lh3.googleusercontent.com/wBCIw9Mu04RHjWEB5A1To_jIHcnjpvyIRxsudBvcOhOfMJvs6KZElN62hlSxLmBdWFnwXdu3iiSFZcZkajS-F5vN89SJ8i55wxoEW6VpZvLEHC0nNR0=w2880-rw-lo" alt="JAX" style="display:none" data-old="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIAH0AwQMBIgACEQEDEQH/xAAcAAEAAQUBAQAAAAAAAAAAAAAABAEDBQYHAgj/xABKEAABAwICBQgGBwMJCQAAAAABAAIDBBEFMQYSIUFRExQiYXGBkdEHMkJSocEVIzNUgpPwF5KxFiRDRFVylNLhNDVTYoOEo8Lx/8QAGgEBAAIDAQAAAAAAAAAAAAAAAAQFAQIDBv/EACkRAAICAgEEAQMEAwAAAAAAAAABAgMEETESEyFBUQUyYRQigZEjQnH/2gAMAwEAAhEDEQA/AO4oiIAiIgCIiAIiIAqKq8uIaCTuQHpUUL6Vw7aefUuf/Fb5qv0th33+l/Ob5rPTL4NepExLKJ9JUVr86gsd/KDzT6Roj/WofzB5p0v4N+lv0S7Kqjw1dPO7VinjeRua8FSFjWjGtBUVJHtYwue4NaBckmwAUX6SofvcH5g81lJvgyk3wS1VQ/pKh+9wfmDzUmN7ZGhzHhzTvBuEaa5DTXJ7REWDAREQBERAEREBQ5LW9M8T5rQ80hd9bUAh3Uzf45LP1M0dPA+aYhrGAkk8FzDFJ58Qr5aqQNBebBuuOi0ZDP9bVMwqe5ZuXCI+RNxjpckFXqeEzShh9QbT1BeeRk4tH4x5qXFNS0gdHPVUsc+wva6doI4DaeB+Ku7LIpEbDqVtqU3peyZssOzZ2Kg2myj/SFD99pP8AEM81j8fxWKHDniimjlkmvHrxPDwzZtNxfbbY39S4dUXwethbS9QhLyQpdJJqPSGGrpDrRUrtUMGUjT6/ju7GldkoauGupYqqmeHxSsD2OG8FfO20bLAk710D0baRGmgqMLmJc2Nhmp7/ABb4m/eVFzMfqipR5OWZj9Uepcm3aT12VHG7rk+Q+a1xXJnTTSySzFpe51ybjzXnk3nYNXb1/wCq7UQVcEvZ1ogq4JeyDilaMPo5J3AcplG073bu7M9yvei3SFwnkwerlLuUJlgc73jtc35+K1HSavNXiLom/ZU5MYv73tE+HwHFYynnkpqiKogdqSxPD2PG5wNxfiOpbW0qyDTNraVOtpn0cqrFaO4o3GcIpq9rCzlW7WkZG9iPEFZVUTi4vTKJpxemERFgwEREAREQBERAEREAVFU5KDi1czDqKSoeRcCzGk2u7cFlJyekYbSW2axpviuuRh0LtgIdN27h8/Baj2q/OJZ53zTSRukcSXHlW5+K8iF7iA10dzl9Y3zXo8eEKa9FTZNzk5EOtqxQ00k+wvvaIEZuOXhtPd1rVpgaqnLtrpoQXaxzew59pBJPGxPBTMdqjUVr4h9lA4sb1nee8j4DgoMb3xSB7CNYZC17jgeoqtybe5Mr7LG5aIKl0EwY90chDYpbNLvcO53cfgSr1ZhsjJGvjEbIJW8pCJZWMcWm43kEgEEX32Kj8ym96nP/AHUX+ZR4ycXtHWqc6pqcfRIe0xlzHWBBIcPdIOSlMlloZImwP1J2OEjyONtg7rm44u6lWBtqdtTM6F0kADS1sjX6+5jiG3sBv7B7yiOcS5ztusTfab371b1zVkUz3+LfHJqU4nQ6KrbW0kdTCOg8X1c9V28H9dragaR15oqIxxuImmBawj2W7z27u/qWH0VrjBUupZTaGba2/svAz7wLeCxuK1r8RrZKkjom3JtPssGQ+O3rKyl50dkvOjxJ9ZAyTV6cQDJBvI3O+R/DxUjAMKmxvFoKCHYZCS97fYYPWd5doUOGQRSAvBdGRZ4vbWBz7+tdb9HGj4wvDnV0wBqKzpA2taL2dm6+ZHWBuXLIu7UHrk45N3Zg9cm10VNDRUsNLTsDIomBjWjcBkpKpsVVRN7KN+QiIhgIiIAqKq8yPbGxz3uDWtBJJ3BAVRYr+UGE7f5/Be9vWT+UGFH+vQrftT+Ga9cfkyqqo1LVQVcXK00rZI721mqQtHteDIOS53pfinPq/m8LrwQbO128/Lx4ra9J8SOH4e4QuaJ5ejHdwFuJ28FzrkiAAdXZneRvmrP6dSnLuSIeVZ/qi2oGNVfNaMxj7acWaeDd578vHgsoIHHZrRtaNpOu3Z8VrdfS11ZVvldHG0HYxonZ0W7rdL9bSpuXdqPTHkq7ZdMdeyFN/OIecN+0ZZsoGZFui74ap7BvKm6M4NJj2NU9E0FsbjrTOHsRjM/IdZVunw+rhlJdDGWOGq9vLsGs3eM+wg7iF0XQSPCNHKOU1dfT8+meeV6XqgHot8Np6zZU8n48GmPXGdicn49kr0haLx4lo8w0ETW1GHx3gY0ZsFtZo7gLdY61xQWNiL/wX0SdJcFt/vKn/AHlyXSnRsvxmap0f5Opoqj6wakjWiNx9ZtiRv29hstIKTetE/KpVj3T5f4NWpJ+QlEhGswgte33gcx8x1hTZo9SS2sHNNi1xGxzTkf12K4dGMY+5/wDmj/zKZHgtdDSOOIU5iip+lrtkYSWZloAN9+zhdyn40pQlqXBY/Rp3Uz7c4vpf4IYJp6fo35WYXPEMz8SdvYBuKpU2l1agbdfZJ/fHyI29t9wVuaV8j3SvIDnWNm5DqHVuHgrlKdZ5gcDqT2ZsF7G/RIG8g/AlWHHlnqOFtmb0HwL6exprZWk0dPaSc7nDc3vN+4FdvAyyWA0KwWPB8CgjaWPmmtLM9huHOI3HeALAFbCqPJt7k/wikyru5Z+EERFHIwREQBERADktU02xTkYW0ELunKLyW3N3Dv8AktirqqOkpJaiVwa1jbm+zsC5hWyS1tVLVTOj15Dc9MbOAz7lOwaVOzqlwiNk2OMdLkiLzNIyCF8spBazbY+0TkFe5F3vR/vjzUHFaSrlc2GNsfJszPKtGs/fv3ZePFXrkmyt0zJ+j/H3UOMupKuQmKufv3S7j35dtuC6s54axzybNAuSuDjCqwezH+ezzW9zY9V1WjNPTTFrKx41Z3co3pNG+9/a81W5uIp2KUPfJMpu6YtSMfj+JHE8RknB+qHQiHBv+p2//FjfgrnJO96P98eaqWNjjdLMYuTYC53TG23f+rFT4uFUPHohybk9vkjVb9RnJZOeA5w4DMD+B8FDVJKmCR+u6qpy85nlh5rzy9P97pvzR5qmst7knJldYpTlskQWF5jk3Y0e87d4Z+HFW7m5vne5Xqpnp2PMHOae0R1PtRnvOf6sOCs8tTn+t0/5oWm0aOEta0X6eF08zIWC7nbL+6N5WzMa2OJkcYsxosP1+syoWDUgZT84BYeVb0SHgjU3ePkshqHdq37QptEEltnsvoWF2a+9Z9z9Hn4dq1PSfE3PrW00DiG0zrkjfJ/pl4rYMaqnYfQSTsIc8jVZ0hsJOfdx42G9aAbk7TcnMqTFdTPQRSZeqY2hzXwi0Um1nVxHdl4FVh+ohdOTZ8nRjtw9p3hsHWTwVyhjNS80hdqmQlzHH2HDPxGw93BWKiQSyEsaWxtGqxp3NGXn2klbcvpM786On+i/Huc0jsIqHjlqbbDc+tHw/Dl3hb+vnfDK+bCq+CuprNlhcCBucN7T2hd8w2tjxGkhqoL6kjb2OYO8HrBuD2KnzKeifUvZT5lPRPa9kxVVAqqGQwiIgCIiA0TTbFOWqG0ELrxxbZOt3Du+fUtXVl+IUj3ue+thc5xLnEuNyT3KnPqH75AOvWPkvTUVxqrSRUWOU5dRMjuwcqdpbsaOJ4/rfZWjfWN/WzXmorqOOV0POoRqHUtc7s77OP62K1z6i3VcN/7x8l1i1yaOLJUbNZ+rezbXcepJHhxytuA4DgrTq2jZTt/ncIEhO25yBtbLq/grXPqPfWQ27/JYT2w0+C/3gdZWCxuvPO2wwO2U7r9Tn779mXjxWRrMRiio5pqadkszQNXVv0L+0dmQ/iQtWsAAM1AzbX9qI18mv2nmthbFIHRX5KRutGOA4HrB2dlio3Ysxh1FPisgwymj5SeW7ogB6rgLm53AgWP4eCyY9Hek/wDZ7f8AER+arG0mawhOa3FbNfkHOaZkrftIQGydbcmu/wDU/h4qRo/hhxPEWQkXhb05nbg3h35LOU2gWlMEgccNa9pBa9vOYxdpzHrfFZCiZh+i/K4fX1cUVaHa0wdcHb6o7LHjmSulEVOeixwcKVty61pGc2E9EWa3YB1J+s7LGfT+D/2hD8fJQcbxummw97cPnbM6R2o97PYBG2+zfkPxK1PaR6UlFejFYtinOsTMrbup47xsB9pu8/i49nBY6aLkpdUO1oyLsfa2sDkbfLdtVtZDDqZ1ayVnJlwpYzUF23ZGM2k7tttvAuWzagup8G05quLn8GPqn8jSCD+kns5//KzMDtOw9mrxVxz+XiZU+2ejKB73Hvz7dbgFYlgdNI6WSpp9Zzrn6y1u7d2diu0UfIyas1TT8lI3VkAkyGd+47evLeq2GR/l63weRp+pzWa7Zfay7T/Vh9Q7VJiI1AcnP3fM37BvW7ejDHzTV78JqnkxVJL4XO3P3jvz7R1rSqu7JObtHQi2XGTjvd37jwsrMb3xSskicWPY4Oa4ZgjIqfZWroPZ6ydatr0/4Po8FeliNGMTfi+B0ldLGY5JGDXHEjYSOo2uOpZdUDTi9MoGnF6YREWDAREQHz9pTgsmAYzNROJMPrwPPtMJ2d4tY9nWsSu2ae6NHSHDGmlazn1O7WhLjbWBzbf9ZLnn7PdJPucJ/wCu3zXosXNrlUuuWmV1lMlLwjXpfr4eW/pIwGydYya75fu8VH8e5bdBoDpFFIC6jiesizxy7RrDfvz69y8O9HmkQe4MpontBsHGdouONrrusqjf3r+zn2p/BrlP9cw0xIJc7Wjv7/DsI2duqo17CwyAutr/AGeaR/dIfz2+au1GgGkMsnKikh1ngF45Zvrbz3595HBP1VCf3L+x2p/BqkMvIv1i3WZaz23tcbx29e5KiIwyuaDrtI1mOAsHNOWz5btq2b9nukm6kh/Ob5rIYT6PsUmnp4sWhZHTRyXc4SNcSzMtsOvL+8VCzZ0zjuMvJytxbJ8LyZ/0WYBzSidjFS36+qbaEHNsfHtdn2ALflbjY2NjWMFmtAAHAK4qRvbLWmpVQUUFzj0u6N89oG41SR3qKQWmAzdFx/CdvYSujq3LGySJzJGhzHAhwIuCFtXZKualE7wl0vZ8tX2KVQ1AgmAm+xk6Mm+wz1rdR29e0b1uOMejHGYsTqW4VDFJRGS8JdMAdU2NiDwy7rqJ+zTSf7pT/ntV7+ppkt7LKN0OdmHkYYnlshsWk7b/Az/Fl48V0XRMJ+zTSf7pT/AOe1X/6mmS3ssro3Q52YeRhieWyGxaTtv8ADP8AW35KnKs8wyzu1pzyN5WBqH+RLQE8/gJl+0+C5s2l71/wB6L8f4FPK5a2U/h6v8E+pn3z29uyS79VT3sEJ/DzyBsDXDmvJBoW7RbzuO6U0HHZpgLN7BF/AAqI29le7fRu9j2+xQ6JhOP8q/0XGNqDIHCVzQDfEXy6+RXvnECKpqjfvGtEO9mH0fqaIMHrgIrXM3uIjVWpvjY20bDWRmZJ3fRAD/SFi73/rOsWzbGxPaPDlsw3tkkN6eqwsjYwNa3qAHsBIG4ABUTzVP3vB/D/wDJRs3V5iIiIAiIgCIiAJVFTltLW0sjIJGPe0OAIaRcH5L1K3PxOmfLI7HGBzZMnjvZeNnflvVmKJG3c2PQ/o7eHevJRE5dLV1MNVPT08dQ1stdR/0X6eLVLQMh8ewt3lfHHnZXu93WuE8HGGwx13g8wwjvzG1c25r6n+hHaP5Eup/yfDKYf76+Toj6LQQR4PN5DWvBa8TQSO6cQa3wDHG2c8sVnuC0fOsN8ky5vCaYrSXBvxG/wCK7LPCfEhflvbWN6UVynyS6yJPdEfGU47J+Mc/Z4jfDU1VcbHmZVkbvzlG57D+Q3Wc4HR0DqOHBZJc9QAgR3ZWDUJ6vhfE1DW4wJ6S1NHzGQAKa6FGRwY0X7F4eiPOmkLy94H/g6Ou8vNc+5Bm4Q6JYZHGdPPKLNBa0R0tJEGDEBl8g+SqWVj9TRFZ34O8bvnaPFZ8aXvJRl/MhexXKA6yPP3d1yRJlJP2Z9fPZJdqEhCa1pcToIL3t1mtJa0tI13xd5cTyWKnDfWV0e0f1Qb6/l3eSl9f8Zf32Xz/ABvP95Gzrk5CIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiA//2" alt="JAX">
-                        <span>JAX</span>
-                    </div>
-                    <div class="skill-item">
-                        <img src="https://huggingface.co/datasets/huggingface/brand-assets/resolve/main/hf-logo.svg" alt="HuggingFace">
-                        <span>HuggingFace</span>
-                    </div>
-                    <div class="skill-item">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZV14ywJ5MUPUn7DB2LCqLmq4cFBAbjFMvnK1PIqGTyg&s=10" alt="scikit-learn">
-                        <span>scikit-learn</span>
-                    </div>
+            <div class="skill-group">
+                <div class="skill-group-title">Programming Languages</div>
+                <div class="skill-list">
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">TypeScript</span>
+                    <span class="skill-tag">C++</span>
+                    <span class="skill-tag">SQL</span>
+                    <span class="skill-tag">Bash</span>
                 </div>
             </div>
 
-            <!-- Core Technologies -->
-            <div style="margin-bottom: 3rem;">
-                <h3 style="font-size: 1.3rem; margin-bottom: 1.5rem; color: var(--text-dark); font-weight: 600;">LLM & Inference</h3>
-                <div class="skills-grid" style="grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));">
-                    <div class="skill-item">
-                        <img src="https://raw.githubusercontent.com/lobehub/lobe-icons/refs/heads/master/packages/static-png/dark/langgraph-color.png" alt="LangGraph">
-                        <span>LangGraph</span>
-                    </div>
-                    <div class="skill-item">
-                        <img src="https://pytorch.org/wp-content/uploads/2025/05/vllm-logo-text-light-scaled.png" alt="vLLM">
-                        <span>vLLM</span>
-                    </div>
-                    <div class="skill-item">
-                        <i class="fas fa-microchip"></i>
-                        <span>KV-Cache</span>
-                    </div>
-                    <div class="skill-item">
-                        <i class="fas fa-layer-group"></i>
-                        <span>Batching</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Infrastructure -->
-            <div style="margin-bottom: 3rem;">
-                <h3 style="font-size: 1.3rem; margin-bottom: 1.5rem; color: var(--text-dark); font-weight: 600;">Infrastructure</h3>
-                <div class="skills-grid" style="grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));">
-                    <div class="skill-item">
-                        <img src="https://images.icon-icons.com/2699/PNG/512/apache_kafka_logo_icon_167866.png" alt="Kafka">
-                        <span>Kafka</span>
-                    </div>
-                    <div class="skill-item">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXL3pu2sEoLHpDxN_pXeZDKwtRV1sxM3hSWHmC5WCv9Bw8o0t6tslrqvn3&s=10" alt="Redis">
-                        <span>Redis</span>
-                    </div>
-                    <div class="skill-item">
-                        <i class="fab fa-docker"></i>
-                        <span>Docker</span>
-                    </div>
-                    <div class="skill-item">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/FastAPI_logo.svg/960px-FastAPI_logo.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail&_=20240902201856" alt="FastAPI">
-                        <span>FastAPI</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ML Training -->
-            <div style="margin-bottom: 3rem;">
-                <h3 style="font-size: 1.3rem; margin-bottom: 1.5rem; color: var(--text-dark); font-weight: 600;">Training & Alignment</h3>
-                <div class="skills-grid" style="grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));">
-                    <div class="skill-item">
-                        <i class="fas fa-balance-scale"></i>
-                        <span>DPO</span>
-                    </div>
-                    <div class="skill-item">
-                        <i class="fas fa-handshake"></i>
-                        <span>RLHF</span>
-                    </div>
-                    <div class="skill-item">
-                        <i class="fas fa-wand-magic-sparkles"></i>
-                        <span>SFT</span>
-                    </div>
-                    <div class="skill-item">
-                        <i class="fas fa-link"></i>
-                        <span>LoRA</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Recommendations -->
-            <div>
-                <h3 style="font-size: 1.3rem; margin-bottom: 1.5rem; color: var(--text-dark); font-weight: 600;">Recommendations</h3>
-                <div class="skills-grid" style="grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));">
-                    <div class="skill-item">
-                        <i class="fas fa-magnifying-glass"></i>
-                        <span>FAISS</span>
-                    </div>
-                    <div class="skill-item">
-                        <i class="fas fa-star"></i>
-                        <span>SASRec</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Process -->
-        <section id="process">
-            <h2>My Process</h2>
-            <p class="section-subtitle">How I approach problems and research</p>
-
-            <div class="process-grid">
-                <div class="process-step">
-                    <div class="step-number">01</div>
-                    <h4>Start from Real Problems</h4>
-                    <p>Not theory—concrete gaps. When I found the vLLM quantization bug, it was because a simple config choice caused 94% generation collapse.</p>
-                </div>
-
-                <div class="process-step">
-                    <div class="step-number">02</div>
-                    <h4>Build Rigorous Experiments</h4>
-                    <p>Layer probes across 28 model layers. Compute activation statistics. Run statistical tests to isolate exactly where reasoning fails.</p>
-                </div>
-
-                <div class="process-step">
-                    <div class="step-number">03</div>
-                    <h4>Correct Mistakes</h4>
-                    <p>My TRL PPO looked perfect for 8 runs—then gradients were wrong. I traced a LoRA/KV-cache format incompatibility. Pivoted to DPO.</p>
-                </div>
-
-                <div class="process-step">
-                    <div class="step-number">04</div>
-                    <h4>Scope Honestly</h4>
-                    <p>My DPO degraded format compliance? Traced to dataset bias, not algorithm failure. Report what actually happened, not what I hoped.</p>
+            <div class="skill-group">
+                <div class="skill-group-title">Infrastructure & DevOps</div>
+                <div class="skill-list">
+                    <span class="skill-tag">Docker</span>
+                    <span class="skill-tag">Kubernetes</span>
+                    <span class="skill-tag">PostgreSQL</span>
+                    <span class="skill-tag">Redis</span>
+                    <span class="skill-tag">Kafka</span>
+                    <span class="skill-tag">FastAPI</span>
+                    <span class="skill-tag">GitHub Actions</span>
                 </div>
             </div>
         </section>
 
         <!-- Contact -->
         <section id="contact">
-            <h2>Let's Build Together</h2>
-            <p class="section-subtitle">Interested in collaborating on LLM systems and research</p>
+            <div class="section-label">Get in Touch</div>
+            <h2>Let's collaborate</h2>
+            <p>Interested in discussing LLM systems, agentic architectures, reasoning failure analysis, or production ML. Open to full-time roles and research assistant positions starting 2027.</p>
 
-            <div class="contact-buttons">
-                <a href="mailto:renukaoladriw@gmail.com" class="contact-btn">
-                    <i class="fas fa-envelope"></i> Send Email
-                </a>
-                <a href="https://www.linkedin.com/in/renuka-oladri-8002b525b/" target="_blank" class="contact-btn">
-                    <i class="fab fa-linkedin"></i> Connect
-                </a>
+            <div class="cta-section">
+                <a href="mailto:renukaoladriw@gmail.com" class="cta-button">Send Email</a>
+                <a href="https://www.linkedin.com/in/renuka-oladri-8002b525b/" target="_blank" class="cta-button-secondary">LinkedIn</a>
             </div>
 
-            <div class="contact-links">
-                <a href="https://github.com/oladri-renuka" target="_blank">
-                    <i class="fab fa-github"></i> GitHub
-                </a>
-                <a href="https://arxiv.org/abs/2607.09999" target="_blank">
-                    <i class="fas fa-book"></i> Research
-                </a>
+            <div class="social-links">
+                <a href="https://github.com/oladri-renuka" target="_blank">GitHub</a>
+                <a href="https://arxiv.org/abs/2607.09999" target="_blank">arXiv</a>
             </div>
         </section>
     </main>
@@ -1593,15 +679,21 @@
 
         const savedTheme = localStorage.getItem('theme') || 'light';
         if (savedTheme === 'dark') {
-            html.classList.add('dark-theme');
+            html.style.filter = 'invert(1) hue-rotate(180deg)';
             themeToggle.textContent = '☀️';
         }
 
         themeToggle.addEventListener('click', () => {
-            html.classList.toggle('dark-theme');
-            const isDark = html.classList.contains('dark-theme');
-            localStorage.setItem('theme', isDark ? 'dark' : 'light');
-            themeToggle.textContent = isDark ? '☀️' : '🌙';
+            const isDark = html.style.filter === 'invert(1) hue-rotate(180deg)';
+            if (isDark) {
+                html.style.filter = 'none';
+                localStorage.setItem('theme', 'light');
+                themeToggle.textContent = '🌙';
+            } else {
+                html.style.filter = 'invert(1) hue-rotate(180deg)';
+                localStorage.setItem('theme', 'dark');
+                themeToggle.textContent = '☀️';
+            }
         });
     </script>
 </body>
