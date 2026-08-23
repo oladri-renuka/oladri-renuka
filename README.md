@@ -157,4 +157,4 @@ Woxsen University, Graduated 2025
 
 ---
 
-Interested in collaborating on LLM systems, agentic architectures, reasoning failure analysis, or production ML systems. Open to full-time roles and research assistant positions starting 2027.
+Interested in collaborating on LLM systems, agentic architectures, reasoning failure analysis, or production ML systems. Open to full-time roles New Grad roles - 2027.
