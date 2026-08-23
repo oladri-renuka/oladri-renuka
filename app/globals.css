@@ -2,7 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Accessibility: Screen reader only text */
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #64748b;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* Accessibility */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -26,15 +49,14 @@
   white-space: normal;
 }
 
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
+/* Smooth transitions */
+* {
+  @apply transition-colors duration-300;
 }
 
-/* Focus visible styles */
+/* Focus states */
 *:focus-visible {
-  outline: 2px solid #0ea5e9;
-  outline-offset: 2px;
+  @apply outline-2 outline-offset-2 outline-sky-500;
 }
 
 /* Reduced motion */
@@ -46,26 +68,26 @@ html {
   }
 }
 
-/* Monospace code blocks */
-code {
-  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-/* Better link styling */
-a {
-  position: relative;
-  text-decoration: none;
-}
-
-/* Headings */
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 700;
-  letter-spacing: -0.5px;
-}
-
-/* Print styles */
-@media print {
-  .no-print {
-    display: none;
+/* Smooth fade in */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.6s ease-out;
 }
