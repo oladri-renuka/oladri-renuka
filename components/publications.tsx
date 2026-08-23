@@ -2,24 +2,21 @@ export function Publications() {
   const publications = [
     {
       title: 'Silent Failures in Quantized LLM Reasoning',
+      subtitle: 'A Taxonomy-Based Analysis of Hollow Convergence and Failure Mode Shifts',
       venue: 'IEEE ICTAI 2026 (Submitted)',
       arxiv: '2607.09999',
-      description: 'A taxonomy-based analysis revealing "Hollow Convergence"—the phenomenon where quantized models output correct final answers while their internal reasoning mechanisms completely break. Comprehensive evaluation across multiple datasets and quantization methods.',
+      description: 'Comprehensive taxonomy analyzing failure modes when quantizing reasoning models to NF4 precision, revealing the "Hollow Convergence" phenomenon where models output correct final answers while internal reasoning completely breaks.',
       status: 'Submitted',
+      authors: 'Oladri R., Varadaraju Priya M.V., Wu J.',
     },
     {
-      title: 'Token Efficiency and Early Detection in Reasoning Models',
-      venue: 'COLM 2026 Efficient Reasoning Workshop (Accepted)',
+      title: 'Token Budget Saturation and Mechanistic Early-Detection of Reasoning Non-Convergence',
+      subtitle: 'in Chain-of-Thought Models',
+      venue: 'COLM 2026 Efficient Reasoning Workshop',
       arxiv: '2607.21433',
-      description: 'Mechanistic probing on intermediate layer activations to predict reasoning convergence, enabling efficient early-exit strategies. Revision targeting ICLR 2027 submission.',
+      description: 'Using activation probes on intermediate layers to predict whether chain-of-thought reasoning will converge, enabling efficient early-exit strategies in inference.',
       status: 'Accepted',
-    },
-    {
-      title: 'VLM Hallucination Across Domain Shift',
-      venue: 'ARR August 2026 cycle (Under Review)',
-      arxiv: null,
-      description: 'Analysis of multimodal hallucination patterns when vision-language models encounter out-of-distribution visual content. Targeting EACL 2027.',
-      status: 'Under Review',
+      authors: 'Oladri R., Niveda, Mohamed A.A.',
     },
   ];
 
@@ -39,9 +36,16 @@ export function Publications() {
           {publications.map((pub, idx) => (
             <article key={idx} className="bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl p-8">
               <div className="flex items-start justify-between mb-3">
-                <h3 className="text-xl font-bold text-slate-900 dark:text-slate-50 flex-1">
-                  {pub.title}
-                </h3>
+                <div className="flex-1">
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-slate-50">
+                    {pub.title}
+                  </h3>
+                  {pub.subtitle && (
+                    <p className="text-slate-600 dark:text-slate-400 text-sm mt-1">
+                      {pub.subtitle}
+                    </p>
+                  )}
+                </div>
                 <span className="ml-4 inline-block px-3 py-1 text-xs font-medium bg-sky-100 dark:bg-sky-900/30 text-sky-700 dark:text-sky-300 rounded-full whitespace-nowrap">
                   {pub.status}
                 </span>
@@ -53,6 +57,10 @@ export function Publications() {
 
               <p className="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">
                 {pub.description}
+              </p>
+
+              <p className="text-sm text-slate-500 dark:text-slate-400 mb-4">
+                <strong>Authors:</strong> {pub.authors}
               </p>
 
               <div className="flex gap-4">

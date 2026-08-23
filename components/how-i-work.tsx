@@ -6,57 +6,57 @@ export function HowIWork() {
           How I Work
         </h2>
         <p className="text-lg text-slate-600 dark:text-slate-400 mb-12 max-w-3xl">
-          A case study: investigating a quantization bug in vLLM.
+          My approach to research and systems work.
         </p>
 
-        <div className="bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl p-8 space-y-6 text-slate-600 dark:text-slate-400 leading-relaxed">
+        <div className="bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl p-8 space-y-8 text-slate-600 dark:text-slate-400 leading-relaxed">
           <div>
             <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-50 mb-3">
-              Starting from an unanswered question
+              Starting from a Real Problem
             </h3>
             <p>
-              Someone in the vLLM community asked: "Does KV-cache quantization hurt reasoning quality?" The question went unanswered for weeks. This wasn't a gap in code—it was a gap in understanding.
+              My work typically begins not in the abstract, but from a concrete gap: a community question, a system bug, or an evaluation that reveals something unexpected. When I found the vLLM KV-cache quantization issue, it wasn't from theorizing—it was from trying to understand why a simple configuration choice was causing 94% generation collapse under default settings.
             </p>
           </div>
 
           <div>
             <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-50 mb-3">
-              Building a controlled experiment
+              Building Rigorous Experiments
             </h3>
             <p>
-              I set up a clean benchmark comparing three scenarios: (1) no quantization, (2) FP8 quantization, (3) int8_per_token_head. Each scenario was run on the same reasoning task (GSM8K math problems) with identical seeds. I tracked accuracy and generation stability.
+              Once I identify a problem, I design controlled experiments. I don't just measure end metrics; I dig into intermediate states. With the vLLM bug, I layered probes across 28 model layers, computed activation statistics, and ran statistical tests (AUC with p-values) to isolate exactly where the reasoning was failing.
             </p>
           </div>
 
           <div>
             <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-50 mb-3">
-              Hitting a wrong conclusion
+              Catching and Correcting My Own Mistakes
             </h3>
             <p>
-              The raw metrics showed FP8 had terrible accuracy, and I initially labeled it a "catastrophic reasoning failure." But when I manually inspected the outputs, I noticed something odd: the model was generating garbage tokens, not reasoning mistakes. The failure was earlier in the pipeline than I thought.
+              My TRL PPO pipeline taught me this lesson hard. For 8 runs, I watched training curves that looked perfect—loss dropping smoothly, convergence curves tracking as expected. But the gradients were wrong. I'd missed a format incompatibility between merged LoRA weights and KV-cache tensors. Only when I manually traced the tensor shapes did I realize what was happening. I pivoted to DPO.
             </p>
           </div>
 
           <div>
             <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-50 mb-3">
-              Correcting through transparency
+              Honest Scoping of Limitations
             </h3>
             <p>
-              I reviewed transcripts of failing generations by hand. The pattern was clear: FP8 was systematically producing degenerate outputs because the KV-cache scales weren't calibrated—not because the reasoning module broke. This was a different failure mode entirely. I revised my findings.
+              When my DPO model degraded on format compliance (-16.7pp, p=0.0003), I could have blamed the algorithm. Instead, I traced it back to UltraFeedback's preference annotation bias toward helpfulness over structure. That's not a DPO failure—it's a dataset composition finding. My job is to report what actually happened, not what I wanted to happen.
             </p>
           </div>
 
           <div>
             <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-50 mb-3">
-              Landing on an honestly-scoped result
+              Statistical Rigor + Practical Reality
             </h3>
             <p>
-              The final publication clearly states: "FP8 causes generation collapse due to uncalibrated scales. int8_per_token_head with calibration closely tracks baseline performance." I also documented the limitation: my evaluation was on math reasoning tasks; this may not generalize to other domains.
+              I pair rigorous evaluation with practical constraints. My probe-guided inference scheduler achieves AUC 0.612 in convergence prediction, which sounds good until you realize: "good enough to reorder requests" (44.8% latency improvement), but "not good enough to terminate early" (47.5% false termination rate). Those aren't failures—they're boundaries that tell you exactly where the technique is safe to deploy.
             </p>
           </div>
 
           <p className="text-sm text-slate-500 dark:text-slate-500 italic pt-4 border-t border-slate-200 dark:border-slate-800">
-            This is how I think: start from a real question, run the experiment carefully, correct mistakes quickly when you find them, and report what actually happened—not what you hoped to find.
+            This is how I approach every project: start from a real need, measure rigorously, correct mistakes transparently, and report the actual scope of what works.
           </p>
         </div>
       </div>
