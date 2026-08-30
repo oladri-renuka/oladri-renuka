@@ -92,28 +92,33 @@ See my **pinned repositories** on GitHub for detailed implementations of:
 ### HARMAN International (Samsung)
 **AI Data and Analytics Intern** | Dec 2024 – Jun 2025 | Remote, India
 
-- Evaluated proprietary agentic framework across tool calling, memory management, and variable input sizes
-- Built TypeScript testing agent using AST parsing, achieving 93% average code coverage across 50+ enterprise modules
-- Benchmarked test case generation against GitHub Copilot across 10+ quality dimensions
-
-### Woxsen University
-**Research Assistant** | Aug 2022 – Dec 2024 | India
-
-- Built end-to-end Random Forest Regression pipeline for battery charging prediction with 4-person team
-- Achieved 90–95% prediction accuracy on sensor data preprocessing and model validation
-- Won Best Student for Research Inclination Award
-
-### AppsTek Corp
-**Research Intern** | Feb 2023 – Jul 2023 | India
-
-- Built multimodal sentiment classifier combining video frames, audio, and transcripts for Context-Based Video Sentiment Analysis
-- Achieved 90%+ accuracy across 3 labels and demoed results to AI research team
+- Architected 6 multi-agent production use cases to evaluate an internal agentic framework, benchmarking tool-use success and memory retention across 100k+ token contexts: 94% and 98% respectively.
+- Using that framework, designed and built an autonomous multi-agent test-generation system with AST-based analysis, first in TypeScript and then generalized to C++ via language-specific parsers, reaching 93% and 85% coverage respectively.
+- Benchmarked the system against GitHub Copilot on proprietary system dependencies, measuring a 35-point increase in branch coverage and a 3x reduction in dependency-hallucination errors. The results drove the framework's adoption for enterprise use, and the system was deployed into the client's CI/CD pipeline to automate legacy regression testing.
 
 ### SeriGreen Technologies
 **Junior Data Analyst Intern** | Feb 2024 – Jul 2024 | India
 
-- Analyzed 10K–100K-record cocoon market datasets to surface peak sale-rate conditions against quality, temperature, and weather signals
-- Built MERN-stack farm management web app operationalizing insights and presented findings directly to founders
+- Engineered a Python ETL pipeline to parse and structure 1,450+ unformatted market logs from a state agricultural database into relational schemas, cutting downstream data-cleansing latency 42%.
+- Streamed processed data through a 3-broker Apache Kafka cluster to handle high-throughput routing between ingestion and analytics services without data loss.
+- Trained multivariable regression models in Scikit-learn on environmental features (temperature, weather, humidity) to forecast optimal crop yield conditions, reaching 88.4% validation accuracy.
+- Built a full-stack MERN application to serve the models in production and added a WebSocket layer for real-time control, triggering physical hardware state changes on a Raspberry Pi in under 180ms.
+
+### Woxsen University
+**Research Assistant** | Aug 2022 – Dec 2024 | India
+
+- Engineered an automated telemetry pipeline ingesting 4.5M+ time-series data points (wind velocity, torque, battery state-of-charge, thermal readings) from campus sensors.
+- Built a signal processing pipeline in NumPy and SciPy to denoise, normalize, and downsample raw sensor streams, improving feature-engineering throughput 38%.
+- Trained LSTM and GRU networks in PyTorch to forecast wind energy generation spikes and battery degradation, running hyperparameter sweeps across 50+ configurations to reach an R-squared of 0.912 on battery discharge cycle forecasts.
+- Packaged the pipeline and models into a reproducible benchmarking repository, accelerating the lab's energy-load simulation throughput 2.8x.
+
+### AppsTek Corp
+**Research Intern** | Feb 2023 – Jul 2023 | India
+
+- Built an ETL pipeline using Hugging Face tokenizers and OpenCV to ingest and temporally align 12,000+ conversational video segments, extracting RoBERTa text embeddings, Wav2Vec 2.0 acoustic vectors, and ResNet-50 facial feature maps.
+- Implemented and integrated the published Multimodal Adaptation Gate (MAG) architecture into a PyTorch transformer pipeline, modifying cross-modal attention to inject acoustic and visual vectors into the language model's inner layers.
+- Optimized inference by exporting the fused model to ONNX with graph optimization and post-training quantization, reducing inference latency 34%.
+- Achieved a macro F1-score of 0.84 on the conversational test set, outperforming single-modality baselines.
 
 ---
 
