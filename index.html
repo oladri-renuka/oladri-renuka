@@ -416,7 +416,7 @@
     <header>
         <div class="header-left">
             <div class="logo">Renuka Oladri</div>
-            <div class="tagline">AI/ML Researcher</div>
+            <div class="tagline">AI/ML Engineer</div>
         </div>
         <nav>
             <a href="#research">Research</a>
@@ -445,11 +445,11 @@
                 </div>
                 <div class="stat">
                     <div class="stat-number">4</div>
-                    <div class="stat-label">Years Experience</div>
+                    <div class="stat-label">Internships &amp; Research Roles</div>
                 </div>
                 <div class="stat">
-                    <div class="stat-number">94%</div>
-                    <div class="stat-label">Bug Impact Found</div>
+                    <div class="stat-number">66.6%</div>
+                    <div class="stat-label">BIRD Execution Accuracy</div>
                 </div>
             </div>
         </section>
@@ -461,7 +461,7 @@
 
             <div class="research-vision">
                 <h4>Current Work</h4>
-                <p>I discover critical bugs in LLM systems that cause silent reasoning failures. Recently, I found a KV-cache quantization bug in vLLM that causes 94% generation collapse under default settings, and built a linear probe that predicts stuck reasoning chains from model activations (AUC 0.612 vs 0.445 baseline).</p>
+                <p>I discover critical bugs in LLM systems that cause silent reasoning failures. Recently, I found that vLLM's calibrated FP8 KV-cache mode collapses reasoning on AIME and GSM8K (3% vs 73% correct), while int8_per_token_head matches the unquantized baseline, and built a linear probe that predicts stuck reasoning chains from model activations (AUC 0.612 vs 0.445 baseline).</p>
             </div>
 
             <p>My research on quantization-induced reasoning failures is available on arXiv, and my work on mechanistic early detection of reasoning non-convergence was accepted to the COLM 2026 Efficient Reasoning Workshop. I prioritize reproducibility and rigorous evaluation, backing every claim with significance testing and controlled baselines.</p>
@@ -473,51 +473,51 @@
             <h2>AI systems spanning LLM inference and agentic architectures</h2>
 
             <div class="project-card">
-                <div class="icon-circle"><i class="fas fa-microchip"></i></div>
-                <div class="section-label">AI & LLM Infrastructure</div>
-                <h3>vLLM KV-Cache Quantization Reasoning Evaluation</h3>
-                <p>Investigated whether vLLM's KV-cache quantization modes cause silent reasoning failures. Found that calibrated FP8 causes near-total generation collapse (94% failure) while int8_per_token_head closely tracks unquantized baseline accuracy. Findings referenced in vLLM's issue tracker.</p>
-                <a href="https://github.com/oladri-renuka/vllm-kvcache-quant-reasoning-eval" class="cta-button-secondary" target="_blank">View on GitHub →</a>
+                <div class="icon-circle"><i class="fas fa-database"></i></div>
+                <div class="section-label">AI & Agentic Systems</div>
+                <h3>NL-to-SQL Agent: Schema Retrieval, Self-Correction, Cost-Aware Routing</h3>
+                <p>LangGraph agent with schema retrieval, execute-and-self-correct, and Haiku→Sonnet routing. On all 1,534 BIRD dev questions: 66.6% execution accuracy vs 63.6% baseline (McNemar p=0.0001) at 0.18¢ per question, with ablations and a failure taxonomy.</p>
+                <a href="https://github.com/oladri-renuka/sql-agent-eval" class="cta-button-secondary" target="_blank">View on GitHub →</a>
             </div>
 
             <div class="project-card">
-                <div class="icon-circle"><i class="fas fa-robot"></i></div>
-                <div class="section-label">AI & Agentic Systems</div>
-                <h3>Adaptive Multi-Model Agent</h3>
-                <p>LangGraph-based agent that routes requests between fast and strong models based on live task-difficulty classification, with input/output guardrails against injection and hallucination. Achieves 98% routing accuracy with 28.2% cost reduction.</p>
-                <a href="https://github.com/oladri-renuka/adaptive_agent" class="cta-button-secondary" target="_blank">View on GitHub →</a>
+                <div class="icon-circle"><i class="fas fa-leaf"></i></div>
+                <div class="section-label">AI & Computer Vision</div>
+                <h3>Crop Disease Detection: Lab-to-Field Generalization</h3>
+                <p>Showed that lab-trained classifiers (99% on PlantVillage) drop to 24–38% on real field photos because they learn the background; ten real field photos per class recover 45–78% of the gap, far more than GAN or VAE augmentation. Live Hugging Face demo.</p>
+                <a href="https://github.com/oladri-renuka/lab-to-field" class="cta-button-secondary" target="_blank">View on GitHub →</a>
+            </div>
+
+            <div class="project-card">
+                <div class="icon-circle"><i class="fas fa-heartbeat"></i></div>
+                <div class="section-label">AI & Deployment</div>
+                <h3>Real-Time ECG Classification with a Signal-Quality Gate</h3>
+                <p>Multi-label ECG classifier on PTB-XL: 0.932 macro AUROC at 8.9 ms p95 on a laptop CPU. An autoencoder quality gate refuses noisy signals instead of guessing. Architecture chosen under a fixed CPU latency budget.</p>
+                <a href="https://github.com/oladri-renuka/ecg-refuse-or-classify" class="cta-button-secondary" target="_blank">View on GitHub →</a>
             </div>
 
             <div class="project-card">
                 <div class="icon-circle"><i class="fas fa-brain"></i></div>
                 <div class="section-label">AI & Reasoning Systems</div>
                 <h3>Multi-Agent Factcheck System</h3>
-                <p>Adversarial multi-agent system for fact verification using three specialized agents (Confirmer, Refuter, Contextualizer) that debate claims with structured reasoning. Achieves 71.2% accuracy on FEVER dataset, outperforming GPT-4 (49.4%), demonstrating superior reasoning through collaborative multi-agent architecture.</p>
+                <p>Adversarial multi-agent system for fact verification: Confirmer, Refuter and Contextualizer agents debate each claim with Wikipedia evidence, and a synthesizer gives a calibrated verdict. On 160 FEVER claims: 71.2% accuracy vs 49.4% for single-model GPT-4, with 2.4× lower calibration error.</p>
                 <a href="https://github.com/oladri-renuka/multi-agent-factcheck" class="cta-button-secondary" target="_blank">View on GitHub →</a>
-            </div>
-
-            <div class="project-card">
-                <div class="icon-circle"><i class="fas fa-project-diagram"></i></div>
-                <div class="section-label">AI & Knowledge Systems</div>
-                <h3>Personal Knowledge Agent (MCP Server)</h3>
-                <p>Persistent belief-graph agent that ingests documents, resolves duplicate entities via semantic matching, detects contradictions across sources, and answers queries with per-fact citations. Exposed as MCP server for Claude Desktop.</p>
-                <a href="https://github.com/oladri-renuka/knowledge-agent" class="cta-button-secondary" target="_blank">View on GitHub →</a>
             </div>
 
             <div class="project-card">
                 <div class="icon-circle"><i class="fas fa-server"></i></div>
                 <div class="section-label">AI & LLM Infrastructure</div>
                 <h3>Inference Server: Continuous Batching + Paged KV-Cache</h3>
-                <p>Built three LLM serving backends from scratch to compare naive serial, static batching, and continuous batching with paged attention. Demonstrates head-of-line blocking problem that motivates production techniques.</p>
+                <p>Built three LLM serving backends from scratch to compare naive serial, static batching, and continuous batching with paged attention. Continuous batching lifted throughput 16% and cut p99 latency from 34.8 s to 10.9 s under mixed-length load.</p>
                 <a href="https://github.com/oladri-renuka/inference-server" class="cta-button-secondary" target="_blank">View on GitHub →</a>
             </div>
 
             <div class="project-card">
-                <div class="icon-circle"><i class="fas fa-chart-line"></i></div>
-                <div class="section-label">AI & MLOps</div>
-                <h3>Shadow Deployment Framework</h3>
-                <p>Production ML serving system that runs champion and challenger models in parallel, automatically detecting statistical degradation via hypothesis testing, and rolling back within 60 seconds without human intervention or latency impact.</p>
-                <a href="https://github.com/oladri-renuka/shadow-deployment-framework" class="cta-button-secondary" target="_blank">View on GitHub →</a>
+                <div class="icon-circle"><i class="fas fa-microchip"></i></div>
+                <div class="section-label">AI & LLM Infrastructure</div>
+                <h3>vLLM KV-Cache Quantization Reasoning Evaluation</h3>
+                <p>Investigated whether vLLM's KV-cache quantization modes cause silent reasoning failures. Calibrated FP8 drops accuracy from 73% to 3% through generation collapse; int8_per_token_head matches baseline.</p>
+                <a href="https://github.com/oladri-renuka/vllm-kvcache-quant-reasoning-eval" class="cta-button-secondary" target="_blank">View on GitHub →</a>
             </div>
         </section>
 
@@ -528,10 +528,10 @@
 
             <div class="pub-featured">
                 <img src="images/silent-failures-convergence-rate.png" style="width: 100%; height: auto; border-radius: 12px; margin-bottom: 2rem; max-height: 350px; object-fit: contain;" alt="Hollow Convergence Rate by Model and Quantization Precision">
-                <div class="pub-status">Featured Research — IEEE ICTAI 2026</div>
+                <div class="pub-status">arXiv 2026</div>
                 <h3>Silent Failures in Quantized LLM Reasoning</h3>
                 <p><strong>A Taxonomy-Based Analysis of Hollow Convergence and Failure Mode Shifts</strong></p>
-                <p style="color: var(--accent); font-weight: 500; border-left: 4px solid var(--accent); padding-left: 1rem; margin: 1.5rem 0;">Comprehensive taxonomy analyzing failure modes when quantizing reasoning models to low precision, revealing the "Hollow Convergence" phenomenon where models output correct answers while internal reasoning completely breaks.</p>
+                <p style="color: var(--accent); font-weight: 500; border-left: 4px solid var(--accent); padding-left: 1rem; margin: 1.5rem 0;">Comprehensive taxonomy analyzing failure modes when quantizing reasoning models to low precision, revealing "Hollow Convergence": accuracy stays flat under quantization while the way models fail changes significantly (χ² = 234.5, p &lt; 0.0001).</p>
                 <a href="https://arxiv.org/abs/2607.09999" class="cta-button-secondary" target="_blank">Read on arXiv →</a>
             </div>
 
@@ -555,12 +555,23 @@
             <h2>Experience & roles</h2>
 
             <div class="experience-card">
+                <div class="job-title">University of Maryland</div>
+                <div class="job-role">Graduate Teaching Assistant, MSAI 633 Agentic AI</div>
+                <div class="job-date">Aug 2026 – Present</div>
+                <div class="job-description">
+                    <ul>
+                        <li>Support 47 graduate students on agentic AI architectures, multi-step planning, memory and agent evaluation: grade assignments and quizzes, run office hours, and help students debug their agent projects.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-card">
                 <div class="job-title">HARMAN International (Samsung)</div>
                 <div class="job-role">AI Data and Analytics Intern</div>
                 <div class="job-date">Dec 2024 – Jun 2025 | Remote, India</div>
                 <div class="job-description">
                     <ul>
-                        <li>Architected 6 multi-agent production use cases to evaluate an internal agentic framework, benchmarking tool-use success and memory retention across 100k+ token contexts: 94% and 98% respectively.</li>
+                        <li>Evaluated an internal agentic framework across 6 multi-agent production use cases, benchmarking tool-use success and memory retention across 100k+ token contexts: 94% and 98% respectively.</li>
                         <li>Using that framework, designed and built an autonomous multi-agent test-generation system with AST-based analysis, first in TypeScript and then generalized to C++ via language-specific parsers, reaching 93% and 85% coverage respectively.</li>
                         <li>Benchmarked the system against GitHub Copilot on proprietary system dependencies, measuring a 35-point increase in branch coverage and a 3x reduction in dependency-hallucination errors. The results drove the framework's adoption for enterprise use, and the system was deployed into the client's CI/CD pipeline to automate legacy regression testing.</li>
                     </ul>
@@ -575,7 +586,7 @@
                     <ul>
                         <li>Engineered a Python ETL pipeline to parse and structure 1,450+ unformatted market logs from a state agricultural database into relational schemas, cutting downstream data-cleansing latency 42%.</li>
                         <li>Streamed processed data through a 3-broker Apache Kafka cluster to handle high-throughput routing between ingestion and analytics services without data loss.</li>
-                        <li>Trained multivariable regression models in Scikit-learn on environmental features (temperature, weather, humidity) to forecast optimal crop yield conditions, reaching 88.4% validation accuracy.</li>
+                        <li>Trained multivariable regression models in Scikit-learn on environmental features (temperature, weather, humidity) to forecast optimal crop yield conditions, reaching an R² of 0.884.</li>
                         <li>Built a full-stack MERN application to serve the models in production and added a WebSocket layer for real-time control, triggering physical hardware state changes on a Raspberry Pi in under 180ms.</li>
                     </ul>
                 </div>
